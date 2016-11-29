@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EEE;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #282182;
+    padding-left: 20px;
+    font-weight: 700;
+    margin: 0.3em;
+}
+.ui-widget {
+    font-family: 'Roboto', sans-serif;
+}
+.header {
+    padding: 1px;
+    padding-left: 20px;
+    font-weight: 700;
+    text-align: left;
+    background-color: #DDD;
+    color: #282182;
+}
+.content {
+    margin: 12px;
+    background-color: #E2E2E2;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 60px;
+}
+.login {
+    width: 57%;
+    margin: 0 auto;
+    text-align: left;
+}
+.ui-inputtext, .ui-password {
+    width: 120%;
+    margin-bottom: 12px;
+}
+.saioa-hasi{
+    text-align: center;
+    margin-left: 18%;
+    width: 70%;
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+    overflow: hidden;
+}
+
+.ui-widget-content {
+    border: 0;
+    background: none;
+}
+
+.ui-layout-north {
+    background-color: #DDD;
+    border-radius: 0;
+    color: #282182;
+}

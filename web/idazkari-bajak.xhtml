@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head><title>Bajak</title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+  </h:head>
+  <h:body>
+    <h:outputStylesheet name="./css/style.css" />
+    <p:layout>
+     <p:layoutUnit position="north" size="80" >
+      <h1>ANBULATEGIA</h1>
+    </p:layoutUnit>
+    <p:layoutUnit position="west" >
+        <h:form>
+          <p:menu>
+            <p:menuitem value="Menura" outcome="idazkari-menua.xhtml" icon="ui-icon-triangle-1-w"/>
+            <p:menuitem value="Kontsultak" outcome="idazkari-kontsultak.xhtml" icon="ui-icon-calendar"/>
+            <p:menuitem value="Larrialdiak" outcome="idazkari-larrialdiak.xhtml" icon="ui-icon-alert"/>
+            <p:menuitem value="Bajak" outcome="idazkari-bajak.xhtml" icon="ui-icon-bookmark"/>
+            <p:menuitem value="Gaixo berria" outcome="idazkari-gaixoberria.xhtml" icon="ui-icon-plusthick"/>
+            <p:menuitem value="Kanpo kontsultak" outcome="idazkari-kanpokontsultak.xhtml" icon="ui-icon-seek-next"/>
+            <p:menuitem value="Irten" outcome="login.xhtml" icon="ui-icon-circle-close"/>
+          </p:menu>
+        </h:form>
+      </p:layoutUnit>
+      <p:layoutUnit position="center" >
+        BAJAK
+      </p:layoutUnit>
+    </p:layout>
+  </h:body>
+</html>
