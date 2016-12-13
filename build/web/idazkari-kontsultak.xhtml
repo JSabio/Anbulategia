@@ -9,26 +9,182 @@
   </h:head>
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
-    <p:layout>
-     <p:layoutUnit position="north" size="80" >
-      <h1>ANBULATEGIA</h1>
-    </p:layoutUnit>
-    <p:layoutUnit position="west" >
-        <h:form>
-          <p:menu>
-            <p:menuitem value="Menura" outcome="idazkari-menua.xhtml" icon="ui-icon-triangle-1-w"/>
-            <p:menuitem value="Kontsultak" outcome="idazkari-kontsultak.xhtml" icon="ui-icon-calendar"/>
-            <p:menuitem value="Larrialdiak" outcome="idazkari-larrialdiak.xhtml" icon="ui-icon-alert"/>
-            <p:menuitem value="Bajak" outcome="idazkari-bajak.xhtml" icon="ui-icon-bookmark"/>
-            <p:menuitem value="Gaixo berria" outcome="idazkari-gaixoberria.xhtml" icon="ui-icon-plusthick"/>
-            <p:menuitem value="Kanpo kontsultak" outcome="idazkari-kanpokontsultak.xhtml" icon="ui-icon-seek-next"/>
-            <p:menuitem value="Irten" outcome="login.xhtml" icon="ui-icon-circle-close"/>
-          </p:menu>
-        </h:form>
+    <p:layout fullPage="true">
+      <p:layoutUnit position="north" size="80" >
+        <h1>ANBULATEGIA</h1>
       </p:layoutUnit>
-      <p:layoutUnit position="center" >
-        KONTSULTAK
+      <p:layoutUnit position="center">
+        <p:tabView>
+          <p:tab title="Sendagileen kontsultak">
+            <h:form>
+              <p:toolbar id="tb">
+                <f:facet name="left">
+                  <h:outputLabel value="Sendagilea: "/>
+                  <p:selectOneMenu>
+                    <f:selectItem itemLabel="Sendagilea"/>
+                  </p:selectOneMenu><br/>
+                  <h:outputLabel value="Eguna: "/>
+                  <p:calendar/>
+                </f:facet>
+                <f:facet name="right">
+                  <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" onclick="PF('sendagile-kberria').show();"/>
+                  <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
+                  <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                </f:facet>
+              </p:toolbar>
+              <p:sticky target="tb" />
+            </h:form>
+            <p:dataTable id="sendagile-kontsultak" var="s-kontsulta">
+              <p:column>
+                <f:facet name="header">Ordua</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+              <p:column>
+                <f:facet name="header">GSZ</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header">Izena</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header">Abizenak</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header"></f:facet>
+                <p:commandLink value="Aurrera"/>
+              </p:column>
+            </p:dataTable>
+          </p:tab>
+          <p:tab title="Erizainen kontsultak">
+            <h:form>
+              <p:toolbar id="tb">
+                <f:facet name="left">
+                  <h:outputLabel value="Erizaina: "/>
+                  <p:selectOneMenu>
+                    <f:selectItem itemLabel="Erizaina"/>
+                  </p:selectOneMenu><br/>
+                  <h:outputLabel value="Eguna: "/>
+                  <p:calendar/>
+                </f:facet>
+                <f:facet name="right">
+                  <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" onclick="PF('erizain-kberria').show();"/>
+                  <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
+                  <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                </f:facet>
+              </p:toolbar>
+              <p:sticky target="tb" />
+            </h:form>
+            <p:dataTable id="erizain-kontsultak" var="e-kontsulta">
+              <p:column>
+                <f:facet name="header">Ordua</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+              <p:column>
+                <f:facet name="header">GSZ</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header">Izena</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header">Abizenak</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header">Mota</f:facet>
+                <h:outputText value=""/>
+              </p:column>
+
+              <p:column>
+                <f:facet name="header"></f:facet>
+                <p:commandLink value="Aurrera"/>
+              </p:column>
+            </p:dataTable>
+          </p:tab>
+        </p:tabView>
+
       </p:layoutUnit>
     </p:layout>
+    <p:dialog header="Kontsulta-eskaera" widgetVar="sendagile-kberria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1" style="margin: 0 auto">
+          <p:row>
+            <h:outputText value="Sendagilea: " />
+            <h:outputText value="____ ______" />
+          </p:row>
+
+          <p:row>
+            <h:outputText value="GSZ: " /><br/>
+            <p:inputText id="gz" value=""/>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Eguna: "/><br/>
+            <p:calendar id="popup"/>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Ordua: "/><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Ordua aukeratu"/>
+              <f:selectItem itemLabel="12:00"/>
+            </p:selectOneMenu>
+          </p:row>
+
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
+    <p:dialog header="Kontsulta-eskaera" widgetVar="erizain-kberria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1" style="margin: 0 auto">
+          <p:row>
+            <h:outputText value="Erizaina: " />
+            <h:outputText value="____ ______" />
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Mota: "/><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Tentsioa hartu" itemValue="tentsioa"/>
+              <f:selectItem itemLabel="Froga" itemValue="froga"/>
+            </p:selectOneMenu>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="GSZ: " /><br/>
+            <p:inputText id="gz" value=""/>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Eguna: "/><br/>
+            <p:calendar id="popup"/>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Ordua: "/><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Ordua aukeratu"/>
+              <f:selectItem itemLabel="12:00"/>
+            </p:selectOneMenu>
+          </p:row>
+
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
   </h:body>
 </html>

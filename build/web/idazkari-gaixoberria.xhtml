@@ -9,11 +9,11 @@
   </h:head>
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
-    <p:layout>
-     <p:layoutUnit position="north" size="80" >
-      <h1>ANBULATEGIA</h1>
-    </p:layoutUnit>
-    <p:layoutUnit position="west" >
+    <p:layout fullPage="true">
+      <p:layoutUnit position="north" size="80" >
+        <h1>ANBULATEGIA</h1>
+      </p:layoutUnit>
+      <p:layoutUnit position="west" >
         <h:form>
           <p:menu>
             <p:menuitem value="Menura" outcome="idazkari-menua.xhtml" icon="ui-icon-triangle-1-w"/>
@@ -26,8 +26,42 @@
           </p:menu>
         </h:form>
       </p:layoutUnit>
-      <p:layoutUnit position="center" >
-        GAIXO BERRIA
+      <p:layoutUnit position="center">
+        <h2>GAIXO BERRIA</h2>
+        <div class="center-content">
+          <h:form>
+            <p:panelGrid columns="1" style="background:none">
+              <p:row>
+                <h:outputText value="GSZ: " /><br/>
+                <p:inputText id="gz" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Izena: "/><br/>
+                <p:inputText id="izena" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Abizenak: "/><br/>
+                <p:inputText id="abizena" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Telefonoa: "/><br/>
+                <p:inputText id="telefonoa" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Helbidea: "/><br/>
+                <p:inputText id="helbidea" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <p:commandButton value="Bidali" styleClass="bidali"/>
+              </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
       </p:layoutUnit>
     </p:layout>
   </h:body>

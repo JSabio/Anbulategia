@@ -36,7 +36,7 @@ h1 {
     margin: 0 auto;
     text-align: left;
 }
-.ui-inputtext, .ui-password {
+.ui-inputtext#izena, .ui-password#pass {
     width: 120%;
     margin-bottom: 12px;
 }
@@ -50,7 +50,7 @@ h1 {
     overflow: hidden;
 }
 
-.ui-widget-content {
+.ui-layout-unit-content.ui-widget-content, .ui-layout-pane {
     border: 0;
     background: none;
 }
@@ -59,4 +59,37 @@ h1 {
     background-color: #DDD;
     border-radius: 0;
     color: #282182;
+}
+h2 {
+    text-align: center;
+}
+
+.center-content {
+    background-color: #E2E2E2;
+    width: 50%;
+    margin: 0 auto;
+    padding: 40px;
+}
+.ui-panelgrid td, .ui-panelgrid tr {
+    border-style: none !important;
+    background: none;
+}
+
+.form {
+    width: 120%;
+}
+.k-form, .ui-calendar>.ui-inputtext{
+    width: 100%;
+}
+.bidali{
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 80%;
+}
+.ui-tabs .ui-tabs-panel {
+    padding: 0em 0.3em;
+}
+
+.berriak {
+  margin-top: 12px;
 }

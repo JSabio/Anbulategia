@@ -9,22 +9,47 @@
   </h:head>
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
-    <p:layout>
+    <p:layout fullPage="true">
      <p:layoutUnit position="north" size="80" >
         <h1>ANBULATEGIA</h1>
       </p:layoutUnit>
-      <p:layoutUnit position="west" >
-        <h:form>
-          <p:menu>
-            <p:menuitem value="Menura" outcome="erizain-menua.xhtml" icon="ui-icon-triangle-1-w"/>
-            <p:menuitem value="Tentsioa hartu" outcome="erizain-tentsioahartu.xhtml" icon="ui-icon-plusthick"/>
-            <p:menuitem value="Froga" outcome="erizain-froga.xhtml" icon="ui-icon-plusthick"/>
-            <p:menuitem value="Irten" outcome="login.xhtml" icon="ui-icon-circle-close"/>
-          </p:menu>
-        </h:form>
-      </p:layoutUnit>
       <p:layoutUnit position="center" >
-        FROGA
+        <h:form>
+          <p:toolbar id="tb">
+            <f:facet name="left">
+              <p:commandButton value="Atzera" action="erizain-kontsultak" icon="ui-icon-triangle-1-w"/>
+            </f:facet>
+            <f:facet name="right">
+              <p:commandButton value="Irten" action="login" icon="ui-icon-circle-close"/>
+            </f:facet>
+          </p:toolbar>
+          <p:sticky target="tb" />
+        </h:form>
+        <br/>
+        <div align="center">
+          <h:form>
+            <p:panelGrid columns="1" style="background:none">
+              <p:row>
+                <h:outputText value="Gaixoa: " /><br/>
+                <h:outputText value="_____ ________" />
+              </p:row>
+
+              <p:row>
+                <h:outputText value="Froga mota:"/><br/>
+                <p:inputText id="mota" value=""/>
+              </p:row>
+
+              <p:row>
+                <h:outputText value="Oharrak: "/><br/>
+                <p:inputTextarea rows="6" cols="30" />
+              </p:row>
+
+              <p:row>
+                <p:commandButton value="Gorde" style="width:100%"/>
+              </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
       </p:layoutUnit>
     </p:layout>
   </h:body>

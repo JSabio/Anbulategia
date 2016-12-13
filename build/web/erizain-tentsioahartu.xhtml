@@ -9,23 +9,48 @@
   </h:head>
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
-    <p:layout>
-     <p:layoutUnit position="north" size="80" >
+    <p:layout fullPage="true">
+      <p:layoutUnit position="north" size="80" >
         <h1>ANBULATEGIA</h1>
       </p:layoutUnit>
-      <p:layoutUnit position="west" >
+      <p:layoutUnit position="center" >
         <h:form>
-          <p:menu>
-            <p:menuitem value="Menura" outcome="erizain-menua.xhtml" icon="ui-icon-triangle-1-w"/>
-            <p:menuitem value="Tentsioa hartu" outcome="erizain-tentsioahartu.xhtml" icon="ui-icon-plusthick"/>
-            <p:menuitem value="Froga" outcome="erizain-froga.xhtml" icon="ui-icon-plusthick"/>
-            <p:menuitem value="Irten" outcome="login.xhtml" icon="ui-icon-circle-close"/>
-          </p:menu>
+          <p:toolbar id="tb">
+            <f:facet name="left">
+              <p:commandButton value="Atzera" action="erizain-kontsultak" icon="ui-icon-triangle-1-w"/>
+            </f:facet>
+            <f:facet name="right">
+              <p:commandButton value="Irten" action="login" icon="ui-icon-circle-close"/>
+            </f:facet>
+          </p:toolbar>
+          <p:sticky target="tb" />
         </h:form>
-    </p:layoutUnit>
-    <p:layoutUnit position="center" >
-      TENTSIOA HARTU
-    </p:layoutUnit>
-  </p:layout>
+        <br/>
+        <div align="center">
+          <h:form>
+            <p:panelGrid columns="1" style="background:none">
+              <p:row>
+                <h:outputText value="Gaixoa: " /><br/>
+                <h:outputText value="_____ ________" />
+              </p:row>
+
+              <p:row>
+                <h:outputText value="Tentsio altua:"/><br/>
+                <p:inputText id="altua" value=""/>
+              </p:row>
+
+              <p:row>
+                <h:outputText value="Tentsio baxua: "/><br/>
+                <p:inputText id="baxua" value=""/>
+              </p:row>
+
+              <p:row>
+                <p:commandButton value="Gorde" style="width:100%"/>
+              </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
+      </p:layoutUnit>
+    </p:layout>
   </h:body>
 </html>

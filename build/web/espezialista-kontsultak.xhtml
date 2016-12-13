@@ -10,7 +10,7 @@
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
     <p:layout fullPage="true">
-     <p:layoutUnit position="north" size="80" >
+      <p:layoutUnit position="north" size="80" >
         <h1>ANBULATEGIA</h1>
       </p:layoutUnit>
       <p:layoutUnit position="center" >
@@ -21,7 +21,7 @@
               <p:calendar/>
             </f:facet>
             <f:facet name="right">
-              <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+              <p:commandButton value="Irten" action="login" icon="ui-icon-circle-close"/>
             </f:facet>
           </p:toolbar>
           <p:sticky target="tb" />
@@ -46,17 +46,12 @@
               <h:outputText value=""/>
             </p:column>
 
-          <p:column>
-              <f:facet name="header">Mota</f:facet>
-              <h:outputText value=""/>
-            </p:column>
-
             <p:column>
               <f:facet name="header"></f:facet>
               <p:commandLink value="Aurrera"/>
             </p:column>
-          </p:dataTable>
+          </p:dataTable> 
       </p:layoutUnit>
-      </p:layout>
+    </p:layout>
   </h:body>
 </html>
