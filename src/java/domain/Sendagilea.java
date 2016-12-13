@@ -17,7 +17,7 @@ public class Sendagilea extends Langilea{
     
     private ArrayList<Ordutegia> ordutegiak;
     private ArrayList<LarrialdiOrdutegia> larrialdiordutegiak;
-    private ArrayList<Kontsulta> kontsultak;
+    private ArrayList<SendagileKontsulta> kontsultak;
     private ArrayList<Errezeta> errezetak;
     private ArrayList<Larrialdia> larrialdiak;
     private ArrayList<AltaBaja> altabajak;
@@ -34,7 +34,7 @@ public class Sendagilea extends Langilea{
         this.espezialitatetxostenak = new ArrayList<>();
     }
 
-    public Sendagilea(String erabiltzailea, String pasahitza, int gz, String izena, String abizenak, int telefonoa, String helbidea, ArrayList<Ordutegia> ordutegiak, ArrayList<LarrialdiOrdutegia> larrialdiordutegiak, ArrayList<Kontsulta> kontsultak, ArrayList<Errezeta> errezetak, ArrayList<Larrialdia> larrialdiak, ArrayList<AltaBaja> altabajak, ArrayList<EspezialitateTxostena> espezialitatetxostenak) {
+    public Sendagilea(String erabiltzailea, String pasahitza, int gz, String izena, String abizenak, int telefonoa, String helbidea, ArrayList<Ordutegia> ordutegiak, ArrayList<LarrialdiOrdutegia> larrialdiordutegiak, ArrayList<SendagileKontsulta> kontsultak, ArrayList<Errezeta> errezetak, ArrayList<Larrialdia> larrialdiak, ArrayList<AltaBaja> altabajak, ArrayList<EspezialitateTxostena> espezialitatetxostenak) {
         super(erabiltzailea, pasahitza, gz, izena, abizenak, telefonoa, helbidea);
         this.ordutegiak = ordutegiak;
         this.larrialdiordutegiak = larrialdiordutegiak;
@@ -76,14 +76,14 @@ public class Sendagilea extends Langilea{
     /**
      * @return the kontsultak
      */
-    public ArrayList<Kontsulta> getKontsultak() {
+    public ArrayList<SendagileKontsulta> getKontsultak() {
         return kontsultak;
     }
 
     /**
      * @param kontsultak the kontsultak to set
      */
-    public void setKontsultak(ArrayList<Kontsulta> kontsultak) {
+    public void setKontsultak(ArrayList<SendagileKontsulta> kontsultak) {
         this.kontsultak = kontsultak;
     }
 
