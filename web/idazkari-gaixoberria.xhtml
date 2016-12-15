@@ -33,31 +33,31 @@
             <p:panelGrid columns="1" style="background:none">
               <p:row>
                 <h:outputText value="GSZ: " /><br/>
-                <p:inputText id="gz" value="" styleClass="form"/>
+                <p:inputText id="gz" value="#{gaixoaBean.gz}" styleClass="form"/>
               </p:row>
               
               <p:row>
                 <h:outputText value="Izena: "/><br/>
-                <p:inputText id="izena" value="" styleClass="form"/>
+                <p:inputText id="izena" value="#{gaixoaBean.izena}" styleClass="form"/>
               </p:row>
               
               <p:row>
                 <h:outputText value="Abizenak: "/><br/>
-                <p:inputText id="abizena" value="" styleClass="form"/>
+                <p:inputText id="abizena" value="#{gaixoaBean.abizenak}" styleClass="form"/>
               </p:row>
               
               <p:row>
                 <h:outputText value="Telefonoa: "/><br/>
-                <p:inputText id="telefonoa" value="" styleClass="form"/>
+                <p:inputText id="telefonoa" value="#{gaixoaBean.telefonoa}" styleClass="form"/>
               </p:row>
               
               <p:row>
                 <h:outputText value="Helbidea: "/><br/>
-                <p:inputText id="helbidea" value="" styleClass="form"/>
+                <p:inputText id="helbidea" value="#{gaixoaBean.helbidea}" styleClass="form"/>
               </p:row>
               
               <p:row>
-                <p:commandButton value="Bidali" styleClass="bidali"/>
+                <p:commandButton value="Bidali" styleClass="bidali" action="#{gaixoaBean.gaixoberria()}"/>
               </p:row>
             </p:panelGrid>
           </h:form>

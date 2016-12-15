@@ -19,6 +19,10 @@ public class Gaixoa extends Pertsona{
         super();
     }
 
+    public Gaixoa(int gz, String izena, String abizenak, int telefonoa, String helbidea){
+        super(gz, izena, abizenak, telefonoa, helbidea);
+    }
+    
     public Gaixoa(int gz, String izena, String abizenak, int telefonoa, String helbidea,boolean pentsioduna, Tentsioa tentsioa, Historiala historiala){
         super(gz, izena, abizenak, telefonoa, helbidea);
         this.pentsioduna = pentsioduna;

@@ -6,7 +6,6 @@
 package beans;
 
 import domain.*;
-import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -71,14 +70,36 @@ public class ErabiltzaileBean {
     }
     
     public String login() {
-        if(langilea.getErabiltzailea().compareTo(this.erabiltzailea)==0 && langilea.getPasahitza().compareTo(this.pasahitza)==0) {
-            return "idazkari-menua";
+        if(langilea.getErabiltzailea().compareTo(this.erabiltzailea)==0 && langilea.getPasahitza().compareTo(this.pasahitza)==0){
+           // Langile mota konprobatu eta redirekzioa burutu
+            if(langilea instanceof Idazkaria){
+                return "idazkari-menua?faces-redirect=true";
+            }
+            if(langilea instanceof Erizaina){
+                return "erizain-kontsultak?faces-redirect=true";
+            }
+            if(langilea instanceof Sendagilea){
+                return "sendagile-kontsultak?faces-redirect=true";
+            }
+            if(langilea instanceof EspezialitateSendagilea){
+                return "espezialista-kontsultak?faces-redirect=true";
+            }
+            // Horrela ondo aldatzen da URL a
+            return "idazkari-menua?faces-redirect=true";
         }else{
             FacesContext context = FacesContext.getCurrentInstance(); 
             FacesMessage message = new FacesMessage("Erabiltzaile eta/edo pasahitz desegokia"); 
             context.addMessage("loginForm", message); 
             return "error";
         }
+    }
+    
+    public String saioa_Itxi() throws Throwable{
+        this.setErabiltzailea(null);
+        this.setPasahitza(null);
+        //ErabiltzaileaDAO erabiltzaileaDAO = DAOFactory.erabiltzaileaDAOSortu();
+        //return erabiltzaileaDAO.saioaItxi();
+        return null;
     }
 }
    
