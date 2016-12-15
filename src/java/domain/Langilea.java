@@ -9,13 +9,22 @@ package domain;
  *
  * @author Arr1et4
  */
-public abstract class Langilea extends Pertsona{
+
+//public abstract class Langilea extends Pertsona{
+
+public class Langilea extends Pertsona{
     
     private String erabiltzailea;
     private String pasahitza;
 
     public Langilea(){
         super();
+    }
+    
+    public Langilea(String erabiltzailea, String pasahitza){
+        super();
+        this.erabiltzailea = erabiltzailea;
+        this.pasahitza = pasahitza;
     }
 
     public Langilea(String erabiltzailea, String pasahitza, int gz, String izena, String abizenak, int telefonoa, String helbidea) {

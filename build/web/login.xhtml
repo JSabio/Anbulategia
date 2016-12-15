@@ -16,17 +16,18 @@
       <p:layoutUnit position="center" >
         <div class="content">
           <div class="login">
-            <h:form>
+            <h:form id="loginForm">
               <h:panelGrid id="grid" columns="2" cellpadding="5" >
 
                 <p:outputLabel value="Erabiltzaile izena: "/>
-                <p:inputText id="izena" value="" required="true" requiredMessage="Izen bat sartu."/>
+                <p:inputText id="izena" required="true" requiredMessage="Izen bat sartu." value="#{erabiltzaileBean.erabiltzailea}" />
 
                 <p:outputLabel value="Pasahitza: "/>
-                <p:password id="pass" value="" required="true" requiredMessage="Pasahitz bat sartu." />
+                <p:password id="pass" required="true" requiredMessage="Pasahitz bat sartu." value="#{erabiltzaileBean.pasahitza}" />
 
                 <h:outputText value=""/>
-                <p:commandButton value="Saioa hasi" styleClass="saioa-hasi" update="grid"/>
+                <p:commandButton action="#{erabiltzaileBean.login()}" value="Saioa hasi" styleClass="saioa-hasi" update="grid"/>
+                <p:message for="loginForm"/>
 
                 <h:outputText value=""/>
                 <p:message for="izena" display="text" />
