@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import util.HibernateUtil;
-import beans.ErabiltzaileBean;
+import beans.LangileaBean;
 /**
  *
  * @author Julen
@@ -65,10 +65,16 @@ public class LangileaDAOHibernate implements LangileaDAO{
             langileLista = criteria.list();
             session.getTransaction().commit();
         }catch (Exception ex) {
-            Logger.getLogger(ErabiltzaileBean.class.getName()).log(Level.SEVERE, " Bidaiak listaratzean errorea");
+            Logger.getLogger(LangileaBean.class.getName()).log(Level.SEVERE, " Bidaiak listaratzean errorea");
             session.getTransaction().rollback();
         }
         return langileLista;
+    }
+
+    @Override
+    public String saioaItxi() {
+        session.close();
+        return "index";
     }
     
 }

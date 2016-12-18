@@ -16,4 +16,5 @@ public interface LangileaDAO {
     public void ezabatu(Langilea langilea);
     public void editatu(Langilea langilea);
     public List<Langilea> listaratu();
+    public String saioaItxi();
 }

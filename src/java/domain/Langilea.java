@@ -12,7 +12,7 @@ package domain;
 
 //public abstract class Langilea extends Pertsona{
 
-public class Langilea extends Pertsona{
+public class Langilea extends Pertsona implements java.io.Serializable{
     
     private String erabiltzailea;
     private String pasahitza;
