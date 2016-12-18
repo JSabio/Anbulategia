@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/web/idazkari-gaixoberria.xhtml</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/src/java/domain/Sendagilea.java</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/web/idazkari-kontsultak.xhtml</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/src/java/beans/GaixoaBean.java</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/src/java/domain/Langilea.java</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/src/java/beans/SendagileaBean.java</file>
-            <file>file:/C:/Users/Arr1et4/Documents/NetBeansProjects/Anbulategia/src/java/beans/ErabiltzaileBean.java</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/domain/LangileaDAOHibernate.java</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/beans/ErabiltzaileBean.java</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/domain/Langilea.java</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/domain/LangileaDAO.java</file>
+            <file>file:/C:/Users/rapid/Documents/NetBeansProjects/Anbulategia/src/java/domain/Langilea.hbm.xml</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="domain.Langilea" table="langilea">
+        <property name="Erabiltzailea" type="string">
+            <column name="Erabiltzailea" length="15" not-null="true" />
+        </property>
+        <property name="Pasahitza" type="string">
+            <column name="Pasahitza" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
