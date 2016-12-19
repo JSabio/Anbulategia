@@ -3,10 +3,17 @@
 
 <hibernate-mapping>
     <class name="domain.Langilea" table="langilea">
-        <property name="Erabiltzailea" type="string">
+        <id name="gz" type="java.lang.Integer">
+            <column name="LangGZ" />
+            <generator class="foreign">
+                    <param name="property">pertsona</param>
+            </generator>
+        </id>
+        <one-to-one name="pertsona" class="domain.Langilea" constrained="true"></one-to-one>
+        <property name="erabiltzailea" type="string">
             <column name="Erabiltzailea" length="15" not-null="true" />
         </property>
-        <property name="Pasahitza" type="string">
+        <property name="pasahitza" type="string">
             <column name="Pasahitza" length="15" not-null="true" />
         </property>
     </class>

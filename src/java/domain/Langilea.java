@@ -14,6 +14,7 @@ package domain;
 
 public class Langilea extends Pertsona implements java.io.Serializable{
     
+    private int gz;
     private String erabiltzailea;
     private String pasahitza;
 
