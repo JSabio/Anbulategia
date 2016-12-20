@@ -142,5 +142,5 @@ public class Sendagilea extends Langilea{
     public void setEspezialitatetxostenak(ArrayList<EspezialitateTxostena> espezialitatetxostenak) {
         this.espezialitatetxostenak = espezialitatetxostenak;
     }
-    
+      
 }

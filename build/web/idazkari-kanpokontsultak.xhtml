@@ -27,7 +27,26 @@
         </h:form>
       </p:layoutUnit>
       <p:layoutUnit position="center" >
-        KANPO KONTSULTAK
+        <h2>KANPO KONTSULTAK</h2>
+        <div class="center-content">
+          <h:form>
+            <p:panelGrid columns="1" style="background:none">
+              <p:row>
+                <h:outputText value="GSZ: " /><br/>
+                <p:inputText id="gz" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Zentrua: "/><br/>
+                <p:inputText id="zentrua" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <p:commandButton value="Bidali" styleClass="bidali"/>
+              </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
       </p:layoutUnit>
     </p:layout>
   </h:body>

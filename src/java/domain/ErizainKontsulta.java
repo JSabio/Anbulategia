@@ -13,12 +13,12 @@ public class ErizainKontsulta {
     
     private Gaixoa gaixoa;
     private LanOrduak lanorduak;
-    private int mota;
+    private String mota;
 
     public ErizainKontsulta() {
     }
 
-    public ErizainKontsulta(Gaixoa gaixoa, LanOrduak lanorduak,int mota) {
+    public ErizainKontsulta(Gaixoa gaixoa, LanOrduak lanorduak,String mota) {
         this.gaixoa = gaixoa;
         this.lanorduak = lanorduak;
         this.mota = mota;
@@ -55,14 +55,14 @@ public class ErizainKontsulta {
     /**
      * @return the mota
      */
-    public int getMota() {
+    public String getMota() {
         return mota;
     }
 
     /**
      * @param mota the mota to set
      */
-    public void setMota(int mota) {
+    public void setMota(String mota) {
         this.mota = mota;
     }
     

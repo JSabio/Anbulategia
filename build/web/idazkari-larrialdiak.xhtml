@@ -27,7 +27,26 @@
         </h:form>
       </p:layoutUnit>
       <p:layoutUnit position="center" >
-        LARRIALDIAK
+        <h2>LARRIALDI-TXOSTENA</h2>
+        <div class="center-content">
+          <h:form>
+            <p:panelGrid columns="1" style="background:none">
+              <p:row>
+                <h:outputText value="GSZ: " /><br/>
+                <p:inputText id="gz" value="" styleClass="form"/>
+              </p:row>
+              
+              <p:row>
+                <h:outputText value="Adierazpena: "/><br/>
+                <p:inputTextarea rows="5" />
+              </p:row>
+              
+              <p:row>
+                <p:commandButton value="Bidali" styleClass="bidali"/>
+              </p:row>
+            </p:panelGrid>
+          </h:form>
+        </div>
       </p:layoutUnit>
     </p:layout>
   </h:body>
