@@ -17,7 +17,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author Eneko
  */
-@FacesConverter(forClass = domain.Erizaina.class,value="erizaina")
+@FacesConverter(forClass = domain.Erizaina.class,value="erizainaConverter")
 public class ErizainaConverter implements Converter {
 
     public static List<Erizaina> erizainak;

@@ -20,7 +20,7 @@
               <p:toolbar id="tb">
                 <f:facet name="left">
                   <p:outputLabel value="Sendagilea: "/>
-                  <p:selectOneMenu value="#{sendagileakDropdownView.sendagilea}" converter="sendagilea">
+                  <p:selectOneMenu value="#{sendagileakDropdownView.sendagilea}" converter="sendagileaConverter">
                     <f:selectItem itemLabel="-- Aukeratu sendagilea --" itemValue="" noSelectionOption="true"/>
                     <f:selectItems value="#{sendagileakDropdownView.sendagileak}" var="sendagilea" itemLabel="#{sendagilea.izena} #{sendagilea.abizenak}" itemValue="#{sendagilea}" />
                   </p:selectOneMenu>
@@ -65,7 +65,7 @@
               <p:toolbar id="tb">
                 <f:facet name="left">
                   <p:outputLabel value="Erizaina: "/>
-                  <p:selectOneMenu value="#{erizainakDropdownView.erizaina}" converter="erizaina">
+                  <p:selectOneMenu value="#{erizainakDropdownView.erizaina}" converter="erizainaConverter">
                     <f:selectItem itemLabel="-- Aukeratu erizaina --" itemValue="" noSelectionOption="true"/>
                     <f:selectItems value="#{erizainakDropdownView.erizainak}" var="erizaina" itemLabel="#{erizaina.izena} #{erizaina.abizenak}" itemValue="#{erizaina}" />
                   </p:selectOneMenu>
@@ -123,7 +123,15 @@
 
           <p:row>
             <h:outputText value="GSZ: " /><br/>
-            <p:inputText id="gz" value=""/>
+            <p:autoComplete value="#{autoComplete.gaixoa}" completeMethod="#{autoComplete.complete}" 
+                            var="gaixoa" itemLabel="#{gaixoa.gz}" itemValue="#{gaixoa}" converter="gaixoaConverter" forceSelection="true">
+              <p:column>
+                <h:outputText value="#{gaixoa.gz}"/>
+              </p:column>
+              <p:column>
+                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+              </p:column>
+            </p:autoComplete>
           </p:row>
 
           <p:row>
@@ -163,7 +171,15 @@
 
           <p:row>
             <h:outputText value="GSZ: " /><br/>
-            <p:inputText id="gz" value=""/>
+            <p:autoComplete value="#{autoComplete.gaixoa}" completeMethod="#{autoComplete.complete}" 
+                            var="gaixoa" itemLabel="#{gaixoa.gz}" itemValue="#{gaixoa}" converter="gaixoaConverter" forceSelection="true">
+              <p:column>
+                <h:outputText value="#{gaixoa.gz}"/>
+              </p:column>
+              <p:column>
+                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+              </p:column>
+            </p:autoComplete>
           </p:row>
 
           <p:row>

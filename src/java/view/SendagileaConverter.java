@@ -17,7 +17,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author Eneko
  */
-@FacesConverter(forClass = domain.Sendagilea.class,value="sendagilea")
+@FacesConverter(forClass = domain.Sendagilea.class,value="sendagileaConverter")
 public class SendagileaConverter implements Converter {
 
     public static List<Sendagilea> sendagileak;

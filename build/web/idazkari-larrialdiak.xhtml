@@ -10,10 +10,10 @@
   <h:body>
     <h:outputStylesheet name="./css/style.css" />
     <p:layout fullPage="true">
-     <p:layoutUnit position="north" size="80" >
-      <h1>ANBULATEGIA</h1>
-    </p:layoutUnit>
-    <p:layoutUnit position="west" >
+      <p:layoutUnit position="north" size="80" >
+        <h1>ANBULATEGIA</h1>
+      </p:layoutUnit>
+      <p:layoutUnit position="west" >
         <h:form>
           <p:menu>
             <p:menuitem value="Menura" outcome="idazkari-menua.xhtml" icon="ui-icon-triangle-1-w"/>
@@ -33,14 +33,22 @@
             <p:panelGrid columns="1" style="background:none">
               <p:row>
                 <h:outputText value="GSZ: " /><br/>
-                <p:inputText id="gz" value="" styleClass="form"/>
+                <p:autoComplete value="#{autoComplete.gaixoa}" completeMethod="#{autoComplete.complete}" 
+                                var="gaixoa" itemLabel="#{gaixoa.gz}" itemValue="#{gaixoa}" converter="gaixoaConverter" forceSelection="true">
+                  <p:column>
+                    <h:outputText value="#{gaixoa.gz}"/>
+                  </p:column>
+                  <p:column>
+                    <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+                  </p:column>
+                </p:autoComplete>
               </p:row>
-              
+
               <p:row>
                 <h:outputText value="Adierazpena: "/><br/>
                 <p:inputTextarea rows="5" />
               </p:row>
-              
+
               <p:row>
                 <p:commandButton value="Bidali" styleClass="bidali"/>
               </p:row>
