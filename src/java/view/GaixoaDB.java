@@ -26,6 +26,7 @@ public class GaixoaDB {
         gaixoa.setGz(5000);
         gaixoa.setIzena("Gaixoa5000");
         gaixoa.setAbizenak("Abizenak5000");
+        gaixoa.setHelbidea("Helbidea5000");
         gaixoak.add(gaixoa);
         
         gaixoa = new Gaixoa();

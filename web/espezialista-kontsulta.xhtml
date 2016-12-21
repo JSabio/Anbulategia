@@ -13,13 +13,19 @@
       <p:layoutUnit position="north" size="80" >
         <h1>ANBULATEGIA</h1>
       </p:layoutUnit>
+      <p:layoutUnit position="west" style="overflow:auto" >
+        <h:form>
+          <p:menu>
+            <p:menuitem value="Bolantea" onclick="PF('bolante-berria').show()" icon="ui-icon-plusthick"/>
+            <p:menuitem value="Froga" onclick="PF('froga-berria').show()" icon="ui-icon-plusthick"/>
+            <p:menuitem value="Errezeta" onclick="PF('errezeta-berria').show()" icon="ui-icon-plusthick"/>
+            <p:menuitem value="Baja" onclick="PF('baja-berria').show()" icon="ui-icon-plusthick"/>
+          </p:menu>
+        </h:form>
+      </p:layoutUnit>
       <p:layoutUnit position="center" >
         <h:form>
           <p:toolbar id="tb">
-            <f:facet name="left">
-              <h:outputText value="Gaixoa: "/>
-              <h:outputText value="___ _______"/>
-            </f:facet>
             <f:facet name="right">
               <p:button value="Atzera" outcome="espezialista-kontsultak" icon="ui-icon-triangle-1-w"/>
               <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
@@ -27,20 +33,177 @@
           </p:toolbar>
           <p:sticky target="tb" />
         </h:form>
-        <div align="center">
+        <div>
           <h:form>
-            <p:panelGrid columns="1" style="background:none">
-              <p:row>
-                <h:outputText value="Txostena: "/><br/>
-                <p:inputTextarea rows="5" cols="30" />
-              </p:row>
-              <p:row>
-                <p:commandButton value="Gorde" style="width:100%"/>
-              </p:row>
+            <p:panelGrid columns="2" style="background:none">
+              <p:column>
+                <p:panelGrid columns="2" style="background:none">
+                  <h:outputText value="GZ: "/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.gz}"/>
+                  <h:outputText value="Izena: "/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.izena}"/>
+                  <h:outputText value="Abizenak: "/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.abizenak}"/>
+                  <h:outputText value="Helbidea "/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.helbidea}"/>
+                  <h:outputText value="Telefonoa "/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.telefonoa}"/>
+
+                  <p:commandButton value="Historiala eguneratu" onclick="PF('historiala').show()"/>
+                </p:panelGrid>
+              </p:column>
+
+              <p:column>
+                <p:row>
+                  <h:outputText value="Txostena: "/><br/>
+                  <p:inputTextarea rows="5" cols="30" />
+                </p:row>
+                <p:row>
+                  <p:commandButton value="Gorde" style="width:80%"/>
+                </p:row>
+              </p:column>
             </p:panelGrid>
+            <p:dialog id="historiala" header="Gaixoa eguneratu" widgetVar="historiala">
+              <p:ajax event="close" update="@form" />
+              <h:form>
+                <p:panelGrid columns="1">
+                  <p:row>
+                    <h:outputText value="GSZ: #{gaixoaKontsultaBean.gz}" /><br/>
+                  </p:row>
+                  <p:row>
+                    <h:outputText value="Izena: " /><br/>
+                    <p:inputText value="#{gaixoaKontsultaBean.izena}" style="width: 200px"/>
+                  </p:row>
+                  <p:row>
+                    <h:outputText value="Abizenak: " /><br/>
+                    <p:inputText value="#{gaixoaKontsultaBean.abizenak}" style="width: 200px"/>
+                  </p:row>
+                  <p:row>
+                    <h:outputText value="Helbidea: " /><br/>
+                    <p:inputText value="#{gaixoaKontsultaBean.helbidea}" style="width: 200px"/>
+                  </p:row>
+                  <p:row>
+                    <h:outputText value="Telefonoa: " /><br/>
+                    <p:inputText value="#{gaixoaKontsultaBean.telefonoa}" style="width: 200px"/>
+                  </p:row>
+                  <p:row>
+                    <p:commandButton value="Eguneratu" action="#{gaixoaKontsultaBean.eguneratu}" oncomplete="PF('historiala').hide()" style="width: 100%" />
+                  </p:row>
+                </p:panelGrid>
+              </h:form>
+            </p:dialog>
           </h:form>
         </div>
       </p:layoutUnit>
     </p:layout>
+
+    <p:dialog header="Bolante berria" widgetVar="bolante-berria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1">
+          <p:row>
+            <h:outputText value="Espezialitatea: " /><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Espezialitatea" itemValue=""/>
+              <f:selectItem itemLabel="..." itemValue="..."/>
+            </p:selectOneMenu>
+          </p:row>
+
+          <p:row>
+            <h:outputText value="Sendagilea: " /><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Sendagilea" itemValue=""/>
+              <f:selectItem itemLabel="..." itemValue="..."/>
+            </p:selectOneMenu>
+          </p:row>
+
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
+
+    <p:dialog header="Froga berria" widgetVar="froga-berria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1">
+          <p:row>
+            <h:outputText value="Froga mota: "/><br/>
+            <p:selectOneMenu>
+              <f:selectItem itemLabel="Tentsioa hartu" itemValue="tentsioa"/>
+              <f:selectItem itemLabel="Froga" itemValue="froga"/>
+            </p:selectOneMenu>
+          </p:row>
+          <p:row>
+            <h:outputText value="Egin beharrekoak: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
+
+    <p:dialog header="Errezeta berria" widgetVar="errezeta-berria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1">
+          <p:row>
+            <h:outputText value="Preskripzioa: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Diagnostikoa: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Aginduak: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Kantitatea: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Gomendioak: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
+
+    <p:dialog header="Baja-parte berria" widgetVar="baja-berria" modal="true">
+      <h:form>
+        <p:panelGrid columns="1">
+          <p:row>
+            <h:outputText value="Enterpresa: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Helbidea: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Herria : " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Probintzia: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <h:outputText value="Iraupena: " /><br/>
+            <p:inputText value=""/>
+          </p:row>
+          <p:row>
+            <p:commandButton value="Sortu" style="width: 100%"/>
+          </p:row>
+        </p:panelGrid>
+      </h:form>
+    </p:dialog>
+
+
   </h:body>
 </html>
