@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="anbulategia" name="domain.Froga" optimistic-lock="version" table="froga">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="domain.Gaixoa" fetch="select" name="gaixoa">
+      <column name="GaixoaGZ" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="domain.Zentrua" fetch="select" name="zentrua">
+      <column name="ZentruaZID" not-null="true"/>
+    </many-to-one>
+    <property name="eskaeraZbk" type="java.lang.Integer">
+      <column name="EskaeraZbk"/>
+    </property>
+    <property name="eguna" type="date">
+      <column length="10" name="Eguna"/>
+    </property>
+    <property name="izena" type="string">
+      <column length="30" name="Izena"/>
+    </property>
+    <property name="tokia" type="string">
+      <column length="50" name="Tokia"/>
+    </property>
+    <property name="eginBehar" type="string">
+      <column length="100" name="EginBehar"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="anbulategia" name="domain.Gaixoa" optimistic-lock="version" table="gaixoa">
+    <id name="gz" type="int">
+      <column name="GZ"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="izena" type="string">
+      <column length="30" name="Izena"/>
+    </property>
+    <property name="abizena" type="string">
+      <column length="30" name="Abizena"/>
+    </property>
+    <property name="telefonoa" type="java.lang.Integer">
+      <column name="Telefonoa"/>
+    </property>
+    <property name="helbidea" type="string">
+      <column length="50" name="Helbidea"/>
+    </property>
+    <property name="pentsioduna" type="string">
+      <column length="3" name="Pentsioduna"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="historialas" table="historiala">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Historiala"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="altabajas" table="altabaja">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Altabaja"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="errezetaks" table="errezetak">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Errezetak"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="larrialdias" table="larrialdia">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Larrialdia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="bolanteas" table="bolantea">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Bolantea"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tentsioas" table="tentsioa">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Tentsioa"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="errezetas" table="errezeta">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Errezeta"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="kontsultas" table="kontsulta">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Kontsulta"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="espezialitatetxostenas" table="espezialitatetxostena">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Espezialitatetxostena"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="frogas" table="froga">
+      <key>
+        <column name="GaixoaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Froga"/>
+    </set>
+  </class>
+</hibernate-mapping>

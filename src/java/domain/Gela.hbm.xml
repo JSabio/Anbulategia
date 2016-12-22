@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="anbulategia" name="domain.Gela" optimistic-lock="version" table="gela">
+    <id name="zbk" type="int">
+      <column name="Zbk"/>
+      <generator class="assigned"/>
+    </id>
+    <set fetch="select" inverse="true" lazy="true" name="larrialdiordutegias" table="larrialdiordutegia">
+      <key>
+        <column name="GelaZbk" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Larrialdiordutegia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="ordutegias" table="ordutegia">
+      <key>
+        <column name="GelaZbk" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Ordutegia"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="anbulategia" name="domain.Errezetak" optimistic-lock="version" table="errezetak">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="domain.Gaixoa" fetch="select" name="gaixoa">
+      <column name="GaixoaGZ" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="domain.Langilea" fetch="select" name="langilea">
+      <column name="LangileaGZ" not-null="true"/>
+    </many-to-one>
+    <property name="preskripzioa" type="string">
+      <column length="50" name="Preskripzioa"/>
+    </property>
+    <property name="diagnostikoa" type="string">
+      <column length="100" name="Diagnostikoa"/>
+    </property>
+    <property name="aginduak" type="string">
+      <column length="100" name="Aginduak"/>
+    </property>
+    <property name="iraupena" type="java.lang.Integer">
+      <column name="Iraupena"/>
+    </property>
+    <property name="posologia" type="string">
+      <column length="50" name="Posologia"/>
+    </property>
+    <property name="gomendioak" type="string">
+      <column length="100" name="Gomendioak"/>
+    </property>
+    <property name="data" type="date">
+      <column length="10" name="Data"/>
+    </property>
+    <property name="sinadura" type="string">
+      <column length="30" name="Sinadura"/>
+    </property>
+  </class>
+</hibernate-mapping>

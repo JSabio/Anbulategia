@@ -1,20 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="domain.Langilea" table="langilea">
-        <id name="gz" type="java.lang.Integer">
-            <column name="LangGZ" />
-            <generator class="foreign">
-                    <param name="property">pertsona</param>
-            </generator>
-        </id>
-        <one-to-one name="pertsona" class="domain.Langilea" constrained="true"></one-to-one>
-        <property name="erabiltzailea" type="string">
-            <column name="Erabiltzailea" length="15" not-null="true" />
-        </property>
-        <property name="pasahitza" type="string">
-            <column name="Pasahitza" length="15" not-null="true" />
-        </property>
-    </class>
+  <class catalog="anbulategia" name="domain.Langilea" optimistic-lock="version" table="langilea">
+    <id name="gz" type="int">
+      <column name="GZ"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="domain.Zentrua" fetch="select" name="zentrua">
+      <column name="ZentruaZID" not-null="true"/>
+    </many-to-one>
+    <property name="erabiltzailea" type="string">
+      <column length="30" name="Erabiltzailea"/>
+    </property>
+    <property name="pasahitza" type="string">
+      <column length="30" name="Pasahitza"/>
+    </property>
+    <property name="izena" type="string">
+      <column length="30" name="Izena"/>
+    </property>
+    <property name="abizena" type="string">
+      <column length="30" name="Abizena"/>
+    </property>
+    <property name="telefonoa" type="java.lang.Integer">
+      <column name="Telefonoa"/>
+    </property>
+    <property name="helbidea" type="string">
+      <column length="50" name="Helbidea"/>
+    </property>
+    <property name="mota" type="java.lang.Integer">
+      <column name="Mota"/>
+    </property>
+    <property name="espIzena" type="java.lang.Integer">
+      <column name="EspIzena"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="espezialitatetxostenas" table="espezialitatetxostena">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Espezialitatetxostena"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="errezetas" table="errezeta">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Errezeta"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="altabajas" table="altabaja">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Altabaja"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="errezetaks" table="errezetak">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Errezetak"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="larrialdias" table="larrialdia">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Larrialdia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="ordutegias" table="ordutegia">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Ordutegia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="kontsultas" table="kontsulta">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Kontsulta"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="larrialdiordutegias" table="larrialdiordutegia">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Larrialdiordutegia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="bolanteas" table="bolantea">
+      <key>
+        <column name="LangileaGZ" not-null="true"/>
+      </key>
+      <one-to-many class="domain.Bolantea"/>
+    </set>
+  </class>
 </hibernate-mapping>
