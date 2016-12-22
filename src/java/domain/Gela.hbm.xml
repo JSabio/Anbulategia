@@ -7,13 +7,13 @@
       <column name="Zbk"/>
       <generator class="assigned"/>
     </id>
-    <set fetch="select" inverse="true" lazy="true" name="larrialdiordutegias" table="larrialdiordutegia">
+    <set fetch="select" inverse="true" lazy="true" name="larrialdiOrdutegiak" table="larrialdiordutegia">
       <key>
         <column name="GelaZbk" not-null="true"/>
       </key>
-      <one-to-many class="domain.Larrialdiordutegia"/>
+      <one-to-many class="domain.LarrialdiOrdutegia"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="ordutegias" table="ordutegia">
+    <set fetch="select" inverse="true" lazy="true" name="ordutegiak" table="ordutegia">
       <key>
         <column name="GelaZbk" not-null="true"/>
       </key>

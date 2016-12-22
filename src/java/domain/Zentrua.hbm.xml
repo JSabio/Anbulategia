@@ -16,13 +16,13 @@
     <property name="telefonoa" type="java.lang.Integer">
       <column name="Telefonoa"/>
     </property>
-    <set fetch="select" inverse="true" lazy="true" name="frogas" table="froga">
+    <set fetch="select" inverse="true" lazy="true" name="frogak" table="froga">
       <key>
         <column name="ZentruaZID" not-null="true"/>
       </key>
       <one-to-many class="domain.Froga"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="langileas" table="langilea">
+    <set fetch="select" inverse="true" lazy="true" name="langileak" table="langilea">
       <key>
         <column name="ZentruaZID" not-null="true"/>
       </key>

@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package bean;
 
 import domain.*;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -21,7 +19,7 @@ public class GaixoaBean {
 
     private int gz;
     private String izena; 
-    private String abizenak; 
+    private String abizena; 
     private int telefonoa; 
     private String helbidea;
     private boolean pentsioduna;
@@ -59,17 +57,17 @@ public class GaixoaBean {
     }
 
     /**
-     * @return the abizenak
+     * @return the abizena
      */
-    public String getAbizenak() {
-        return abizenak;
+    public String getAbizena() {
+        return abizena;
     }
 
     /**
-     * @param abizenak the abizenak to set
+     * @param abizena the abizena to set
      */
-    public void setAbizenak(String abizenak) {
-        this.abizenak = abizenak;
+    public void setAbizena(String abizena) {
+        this.abizena = abizena;
     }
 
     /**
@@ -115,11 +113,11 @@ public class GaixoaBean {
     }
 
     public String gaixoberria() {
-        gaixoa = new Gaixoa(gz,izena,abizenak,telefonoa,helbidea);
+        //gaixoa = new Gaixoa(gz,izena,abizena,telefonoa,helbidea);
         //gaixoaDAO.gorde(gaixoa);
         gz = 0;
         izena = null;
-        abizenak = null;
+        abizena = null;
         telefonoa = 0;
         helbidea = null;
         return "idazkari-menua?faces-redirect=true";

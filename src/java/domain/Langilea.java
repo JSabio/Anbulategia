@@ -19,17 +19,16 @@ public class Langilea  implements java.io.Serializable {
      private String abizena;
      private Integer telefonoa;
      private String helbidea;
-     private Integer mota;
+     private String mota;
      private Integer espIzena;
-     private Set<Espezialitatetxostena> espezialitatetxostenas = new HashSet<Espezialitatetxostena>(0);
-     private Set<Errezeta> errezetas = new HashSet<Errezeta>(0);
-     private Set<Altabaja> altabajas = new HashSet<Altabaja>(0);
-     private Set<Errezetak> errezetaks = new HashSet<Errezetak>(0);
-     private Set<Larrialdia> larrialdias = new HashSet<Larrialdia>(0);
-     private Set<Ordutegia> ordutegias = new HashSet<Ordutegia>(0);
-     private Set<Kontsulta> kontsultas = new HashSet<Kontsulta>(0);
-     private Set<Larrialdiordutegia> larrialdiordutegias = new HashSet<Larrialdiordutegia>(0);
-     private Set<Bolantea> bolanteas = new HashSet<Bolantea>(0);
+     private Set<EspezialitateTxostena> espezialitateTxostenak = new HashSet<EspezialitateTxostena>(0);
+     private Set<Errezeta> errezetak = new HashSet<Errezeta>(0);
+     private Set<AltaBaja> altaBajak = new HashSet<AltaBaja>(0);
+     private Set<Larrialdia> larrialdiak = new HashSet<Larrialdia>(0);
+     private Set<Ordutegia> ordutegiak = new HashSet<Ordutegia>(0);
+     private Set<Kontsulta> kontsultak = new HashSet<Kontsulta>(0);
+     private Set<LarrialdiOrdutegia> larrialdiOrdutegiak = new HashSet<LarrialdiOrdutegia>(0);
+     private Set<Bolantea> bolanteak = new HashSet<Bolantea>(0);
 
     public Langilea() {
     }
@@ -39,7 +38,7 @@ public class Langilea  implements java.io.Serializable {
         this.gz = gz;
         this.zentrua = zentrua;
     }
-    public Langilea(int gz, Zentrua zentrua, String erabiltzailea, String pasahitza, String izena, String abizena, Integer telefonoa, String helbidea, Integer mota, Integer espIzena, Set<Espezialitatetxostena> espezialitatetxostenas, Set<Errezeta> errezetas, Set<Altabaja> altabajas, Set<Errezetak> errezetaks, Set<Larrialdia> larrialdias, Set<Ordutegia> ordutegias, Set<Kontsulta> kontsultas, Set<Larrialdiordutegia> larrialdiordutegias, Set<Bolantea> bolanteas) {
+    public Langilea(int gz, Zentrua zentrua, String erabiltzailea, String pasahitza, String izena, String abizena, Integer telefonoa, String helbidea, String mota, Integer espIzena, Set<EspezialitateTxostena> espezialitatetxostenas, Set<Errezeta> errezetas, Set<AltaBaja> altabajas, Set<Larrialdia> larrialdias, Set<Ordutegia> ordutegias, Set<Kontsulta> kontsultas, Set<LarrialdiOrdutegia> larrialdiordutegias, Set<Bolantea> bolanteas) {
        this.gz = gz;
        this.zentrua = zentrua;
        this.erabiltzailea = erabiltzailea;
@@ -50,15 +49,14 @@ public class Langilea  implements java.io.Serializable {
        this.helbidea = helbidea;
        this.mota = mota;
        this.espIzena = espIzena;
-       this.espezialitatetxostenas = espezialitatetxostenas;
-       this.errezetas = errezetas;
-       this.altabajas = altabajas;
-       this.errezetaks = errezetaks;
-       this.larrialdias = larrialdias;
-       this.ordutegias = ordutegias;
-       this.kontsultas = kontsultas;
-       this.larrialdiordutegias = larrialdiordutegias;
-       this.bolanteas = bolanteas;
+       this.espezialitateTxostenak = espezialitatetxostenas;
+       this.errezetak = errezetas;
+       this.altaBajak = altabajas;
+       this.larrialdiak = larrialdias;
+       this.ordutegiak = ordutegias;
+       this.kontsultak = kontsultas;
+       this.larrialdiOrdutegiak = larrialdiordutegias;
+       this.bolanteak = bolanteas;
     }
    
     public int getGz() {
@@ -117,11 +115,11 @@ public class Langilea  implements java.io.Serializable {
     public void setHelbidea(String helbidea) {
         this.helbidea = helbidea;
     }
-    public Integer getMota() {
+    public String getMota() {
         return this.mota;
     }
     
-    public void setMota(Integer mota) {
+    public void setMota(String mota) {
         this.mota = mota;
     }
     public Integer getEspIzena() {
@@ -131,68 +129,62 @@ public class Langilea  implements java.io.Serializable {
     public void setEspIzena(Integer espIzena) {
         this.espIzena = espIzena;
     }
-    public Set<Espezialitatetxostena> getEspezialitatetxostenas() {
-        return this.espezialitatetxostenas;
+    public Set<EspezialitateTxostena> getEspezialitateTxostenak() {
+        return this.espezialitateTxostenak;
     }
     
-    public void setEspezialitatetxostenas(Set<Espezialitatetxostena> espezialitatetxostenas) {
-        this.espezialitatetxostenas = espezialitatetxostenas;
+    public void setEspezialitateTxostenak(Set<EspezialitateTxostena> espezialitateTxostenak) {
+        this.espezialitateTxostenak = espezialitateTxostenak;
     }
-    public Set<Errezeta> getErrezetas() {
-        return this.errezetas;
-    }
-    
-    public void setErrezetas(Set<Errezeta> errezetas) {
-        this.errezetas = errezetas;
-    }
-    public Set<Altabaja> getAltabajas() {
-        return this.altabajas;
+    public Set<Errezeta> getErrezetak() {
+        return this.errezetak;
     }
     
-    public void setAltabajas(Set<Altabaja> altabajas) {
-        this.altabajas = altabajas;
+    public void setErrezetak(Set<Errezeta> errezetak) {
+        this.errezetak = errezetak;
     }
-    public Set<Errezetak> getErrezetaks() {
-        return this.errezetaks;
-    }
-    
-    public void setErrezetaks(Set<Errezetak> errezetaks) {
-        this.errezetaks = errezetaks;
-    }
-    public Set<Larrialdia> getLarrialdias() {
-        return this.larrialdias;
+    public Set<AltaBaja> getAltaBajak() {
+        return this.altaBajak;
     }
     
-    public void setLarrialdias(Set<Larrialdia> larrialdias) {
-        this.larrialdias = larrialdias;
+    public void setAltaBajak(Set<AltaBaja> altaBajak) {
+        this.altaBajak = altaBajak;
     }
-    public Set<Ordutegia> getOrdutegias() {
-        return this.ordutegias;
-    }
-    
-    public void setOrdutegias(Set<Ordutegia> ordutegias) {
-        this.ordutegias = ordutegias;
-    }
-    public Set<Kontsulta> getKontsultas() {
-        return this.kontsultas;
+
+    public Set<Larrialdia> getLarrialdiak() {
+        return this.larrialdiak;
     }
     
-    public void setKontsultas(Set<Kontsulta> kontsultas) {
-        this.kontsultas = kontsultas;
+    public void setLarrialdiak(Set<Larrialdia> larrialdiak) {
+        this.larrialdiak = larrialdiak;
     }
-    public Set<Larrialdiordutegia> getLarrialdiordutegias() {
-        return this.larrialdiordutegias;
-    }
-    
-    public void setLarrialdiordutegias(Set<Larrialdiordutegia> larrialdiordutegias) {
-        this.larrialdiordutegias = larrialdiordutegias;
-    }
-    public Set<Bolantea> getBolanteas() {
-        return this.bolanteas;
+    public Set<Ordutegia> getOrdutegiak() {
+        return this.ordutegiak;
     }
     
-    public void setBolanteas(Set<Bolantea> bolanteas) {
-        this.bolanteas = bolanteas;
+    public void setOrdutegiak(Set<Ordutegia> ordutegiak) {
+        this.ordutegiak = ordutegiak;
+    }
+    public Set<Kontsulta> getKontsultak() {
+        return this.kontsultak;
+    }
+    
+    public void setKontsultak(Set<Kontsulta> kontsultak) {
+        this.kontsultak = kontsultak;
+    }
+    public Set<LarrialdiOrdutegia> getLarrialdiOrdutegiak() {
+        return this.larrialdiOrdutegiak;
+    }
+    
+    public void setLarrialdiOrdutegiak(Set<LarrialdiOrdutegia> larrialdiOrdutegiak) {
+        this.larrialdiOrdutegiak = larrialdiOrdutegiak;
+    }
+    public Set<Bolantea> getBolanteak() {
+        return this.bolanteak;
+    }
+    
+    public void setBolanteak(Set<Bolantea> bolanteak) {
+        this.bolanteak = bolanteak;
     }
 
 

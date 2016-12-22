@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package bean;
 
 import domain.*;
 import java.util.List;
@@ -70,7 +70,7 @@ public class LangileaBean {
     public void setPasahitza(String pasahitza) {
         this.pasahitza = pasahitza;
     }
-    
+    /*
     public String login() {
        LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
        List<Langilea> langileak = langileaDAO.listaratu();
@@ -100,7 +100,7 @@ public class LangileaBean {
     }
     
     public String saioa_Itxi() throws Throwable{
-        this.setErabiltzailea(null);
+       this.setErabiltzailea(null);
         this.setPasahitza(null);
         LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
         return langileaDAO.saioaItxi();
@@ -112,7 +112,7 @@ public class LangileaBean {
         FacesMessage message = new FacesMessage("Erabiltzaile eta/edo pasahitz desegokia"); 
         context.addMessage("loginForm", message); 
         return "error";
-    }
+    }*/
 }
    
     

@@ -20,9 +20,10 @@
               <p:toolbar id="tb">
                 <f:facet name="left">
                   <p:outputLabel value="Sendagilea: "/>
-                  <p:selectOneMenu value="#{sendagileakDropdownView.sendagilea}" converter="sendagileaConverter">
-                    <f:selectItem itemLabel="-- Aukeratu sendagilea --" itemValue="" noSelectionOption="true"/>
-                    <f:selectItems value="#{sendagileakDropdownView.sendagileak}" var="sendagilea" itemLabel="#{sendagilea.izena} #{sendagilea.abizenak}" itemValue="#{sendagilea}" />
+                  <p:selectOneMenu value="#{langileakBean.sendagilea}" converter="langileaConverter" >
+                    <p:ajax event="change" update="right"/>
+                    <f:selectItem itemLabel="-- Aukeratu sendagilea --" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItems value="#{langileakBean.sendagileak}" var="sendagilea" itemLabel="#{sendagilea.izena} #{sendagilea.abizena}" itemValue="#{sendagilea}" />
                   </p:selectOneMenu>
                   <br/>
                   <h:outputLabel value="Eguna: "/>
@@ -30,14 +31,18 @@
                   <p:commandButton value="Kontsultak azaldu" update="sendagilekontsultak"/>
                 </f:facet>
                 <f:facet name="right">
-                  <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":sendagilekberria" oncomplete="PF('sendagile-kberria').show();"/>
-                  <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
-                  <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                  <h:panelGroup id="right">
+                    <h:panelGroup rendered="#{langileakBean.sendagilea ne null}">
+                      <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":sendagilekberria" oncomplete="PF('sendagile-kberria').show();"/>
+                    </h:panelGroup>
+                    <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
+                    <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                  </h:panelGroup>
                 </f:facet>
               </p:toolbar>
               <p:sticky target="tb" />
 
-              <p:dataTable id="sendagilekontsultak" var="skontsulta" value="#{sendagileakDropdownView.sendagilea.kontsultak}">
+              <p:dataTable id="sendagilekontsultak" var="skontsulta" value="#{langileakBean.sendagilea.kontsultak}">
                 <p:column>
                   <f:facet name="header">Ordua</f:facet>
                   <h:outputText value=""/>
@@ -54,7 +59,7 @@
 
                 <p:column>
                   <f:facet name="header">Abizenak</f:facet>
-                  <h:outputText value="#{skontsulta.gaixoa.abizenak}"/>
+                  <h:outputText value="#{skontsulta.gaixoa.abizena}"/>
                 </p:column>
 
               </p:dataTable>
@@ -65,9 +70,10 @@
               <p:toolbar id="tb">
                 <f:facet name="left">
                   <p:outputLabel value="Erizaina: "/>
-                  <p:selectOneMenu value="#{erizainakDropdownView.erizaina}" converter="erizainaConverter">
-                    <f:selectItem itemLabel="-- Aukeratu erizaina --" itemValue="" noSelectionOption="true"/>
-                    <f:selectItems value="#{erizainakDropdownView.erizainak}" var="erizaina" itemLabel="#{erizaina.izena} #{erizaina.abizenak}" itemValue="#{erizaina}" />
+                  <p:selectOneMenu value="#{langileakBean.erizaina}" converter="langileaConverter">
+                    <p:ajax event="change" update="right"/>
+                    <f:selectItem itemLabel="-- Aukeratu erizaina --" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItems value="#{langileakBean.erizainak}" var="erizaina" itemLabel="#{erizaina.izena} #{erizaina.abizena}" itemValue="#{erizaina}" />
                   </p:selectOneMenu>
                   <br/>
                   <h:outputLabel value="Eguna: "/>
@@ -75,14 +81,18 @@
                   <p:commandButton value="Kontsultak azaldu" update="erizainkontsultak"/>
                 </f:facet>
                 <f:facet name="right">
-                  <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":erizainkberria" oncomplete="PF('erizain-kberria').show();"/>
-                  <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
-                  <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                  <h:panelGroup id="right">
+                    <h:panelGroup rendered="#{langileakBean.erizaina ne null}">
+                      <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":erizainkberria" oncomplete="PF('erizain-kberria').show();"/>
+                    </h:panelGroup>
+                    <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
+                    <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                  </h:panelGroup>
                 </f:facet>
               </p:toolbar>
               <p:sticky target="tb" />
 
-              <p:dataTable id="erizainkontsultak" var="ekontsulta" value="#{erizainakDropdownView.erizaina.kontsultak}">
+              <p:dataTable id="erizainkontsultak" var="ekontsulta" value="#{langileakBean.erizaina.kontsultak}">
                 <p:column>
                   <f:facet name="header">Ordua</f:facet>
                   <h:outputText value=""/>
@@ -99,13 +109,9 @@
 
                 <p:column>
                   <f:facet name="header">Abizenak</f:facet>
-                  <h:outputText value="#{ekontsulta.gaixoa.abizenak}"/>
+                  <h:outputText value="#{ekontsulta.gaixoa.abizena}"/>
                 </p:column>
 
-                <p:column>
-                  <f:facet name="header">Mota</f:facet>
-                  <h:outputText value="#{ekontsulta.mota}"/>
-                </p:column>
               </p:dataTable>
             </h:form>
           </p:tab>
@@ -118,7 +124,7 @@
         <p:panelGrid columns="1" style="margin: 0 auto">
           <p:row>
             <h:outputText value="Sendagilea: " />
-            <h:outputText value="#{sendagileakDropdownView.sendagilea.izena} #{sendagileakDropdownView.sendagilea.abizenak}" />
+            <h:outputText value="#{langileakBean.sendagilea.izena} #{langileakBean.sendagilea.abizena}" />
           </p:row>
 
           <p:row>
@@ -129,7 +135,7 @@
                 <h:outputText value="#{gaixoa.gz}"/>
               </p:column>
               <p:column>
-                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizena}"/>
               </p:column>
             </p:autoComplete>
           </p:row>
@@ -158,15 +164,7 @@
         <p:panelGrid columns="1" style="margin: 0 auto">
           <p:row>
             <h:outputText value="Erizaina: " />
-            <h:outputText value="#{erizainakDropdownView.erizaina.izena} #{erizainakDropdownView.erizaina.abizenak}" />
-          </p:row>
-
-          <p:row>
-            <h:outputText value="Mota: "/><br/>
-            <p:selectOneMenu>
-              <f:selectItem itemLabel="Tentsioa hartu" itemValue="tentsioa"/>
-              <f:selectItem itemLabel="Froga" itemValue="froga"/>
-            </p:selectOneMenu>
+            <h:outputText value="#{langileakBean.erizaina.izena} #{langileakBean.erizaina.abizena}" />
           </p:row>
 
           <p:row>
@@ -177,7 +175,7 @@
                 <h:outputText value="#{gaixoa.gz}"/>
               </p:column>
               <p:column>
-                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+                <h:outputText value="#{gaixoa.izena} #{gaixoa.abizena}"/>
               </p:column>
             </p:autoComplete>
           </p:row>

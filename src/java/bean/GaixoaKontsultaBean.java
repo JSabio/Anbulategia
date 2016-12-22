@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package bean;
 
 import domain.Gaixoa;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -28,7 +27,7 @@ public class GaixoaKontsultaBean {
     private Gaixoa gaixoa;
     private int gz;
     private String izena;
-    private String abizenak;
+    private String abizena;
     private int telefonoa;
     private String helbidea;
     
@@ -37,14 +36,14 @@ public class GaixoaKontsultaBean {
         gaixoa = db.getGaixoak().get(0);
         this.gz = gaixoa.getGz();
         this.izena = gaixoa.getIzena();
-        this.abizenak = gaixoa.getAbizenak();
+        this.abizena = gaixoa.getAbizena();
         this.telefonoa = gaixoa.getTelefonoa();
         this.helbidea = gaixoa.getHelbidea();
     }
     
     public void eguneratu(){
         if(!gaixoa.getIzena().equals(izena)) gaixoa.setIzena(izena);
-        if(!gaixoa.getAbizenak().equals(abizenak)) gaixoa.setAbizenak(abizenak);
+        if(!gaixoa.getAbizena().equals(abizena)) gaixoa.setAbizena(abizena);
         if(gaixoa.getTelefonoa() != telefonoa) gaixoa.setTelefonoa(telefonoa);
         if(!gaixoa.getHelbidea().equals(helbidea)) gaixoa.setHelbidea(helbidea);        
     }
@@ -106,17 +105,17 @@ public class GaixoaKontsultaBean {
     }
 
     /**
-     * @return the abizenak
+     * @return the abizena
      */
-    public String getAbizenak() {
-        return abizenak;
+    public String getAbizena() {
+        return abizena;
     }
 
     /**
-     * @param abizenak the abizenak to set
+     * @param abizena the abizena to set
      */
-    public void setAbizenak(String abizenak) {
-        this.abizenak = abizenak;
+    public void setAbizena(String abizena) {
+        this.abizena = abizena;
     }
 
     /**

@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="domain.AltaBaja" table="altabaja">
-        
-    </class>
+  <class catalog="anbulategia" name="domain.AltaBaja" optimistic-lock="version" table="altabaja">
+    <id name="id" type="int">
+      <column name="ID"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="domain.Gaixoa" fetch="select" name="gaixoa">
+      <column name="GaixoaGZ" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="domain.Langilea" fetch="select" name="langilea">
+      <column name="LangileaGZ" not-null="true"/>
+    </many-to-one>
+    <property name="entrepresa" type="string">
+      <column length="50" name="Entrepresa"/>
+    </property>
+    <property name="helbidea" type="string">
+      <column length="50" name="Helbidea"/>
+    </property>
+    <property name="herria" type="string">
+      <column length="30" name="Herria"/>
+    </property>
+    <property name="probintzia" type="string">
+      <column length="30" name="Probintzia"/>
+    </property>
+    <property name="azterketa" type="string">
+      <column length="100" name="Azterketa"/>
+    </property>
+    <property name="eguna" type="date">
+      <column length="10" name="Eguna"/>
+    </property>
+    <property name="hurrengo" type="date">
+      <column length="10" name="Hurrengo"/>
+    </property>
+    <property name="iraun" type="java.lang.Integer">
+      <column name="Iraun"/>
+    </property>
+    <property name="baja" type="date">
+      <column length="10" name="Baja"/>
+    </property>
+  </class>
 </hibernate-mapping>

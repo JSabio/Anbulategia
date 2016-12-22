@@ -25,26 +25,26 @@ public class GaixoaDB {
         Gaixoa gaixoa = new Gaixoa();
         gaixoa.setGz(5000);
         gaixoa.setIzena("Gaixoa5000");
-        gaixoa.setAbizenak("Abizenak5000");
+        gaixoa.setAbizena("Abizena5000");
         gaixoa.setHelbidea("Helbidea5000");
         gaixoak.add(gaixoa);
         
         gaixoa = new Gaixoa();
         gaixoa.setGz(5001);
         gaixoa.setIzena("Gaixoa5001");
-        gaixoa.setAbizenak("Abizenak5001");
+        gaixoa.setAbizena("Abizena5001");
         gaixoak.add(gaixoa);
         
         gaixoa = new Gaixoa();
         gaixoa.setGz(5002);
         gaixoa.setIzena("Gaixoa5002");
-        gaixoa.setAbizenak("Abizenak5002");
+        gaixoa.setAbizena("Abizena5002");
         gaixoak.add(gaixoa);
         
         gaixoa = new Gaixoa();
         gaixoa.setGz(5003);
         gaixoa.setIzena("Gaixoa5003");
-        gaixoa.setAbizenak("Abizenak5003");
+        gaixoa.setAbizena("Abizena5003");
         gaixoak.add(gaixoa);
         
     }

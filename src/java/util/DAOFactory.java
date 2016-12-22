@@ -12,9 +12,9 @@ import domain.*;
  */
 public class DAOFactory {
     
-    public static LangileaDAO langileaDAOSortu(){
+   /* public static LangileaDAO langileaDAOSortu(){
         LangileaDAOHibernate langileaDAO = new LangileaDAOHibernate();
         return langileaDAO;
-    }
+    }*/
     
 }

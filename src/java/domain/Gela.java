@@ -12,8 +12,8 @@ public class Gela  implements java.io.Serializable {
 
 
      private int zbk;
-     private Set<Larrialdiordutegia> larrialdiordutegias = new HashSet<Larrialdiordutegia>(0);
-     private Set<Ordutegia> ordutegias = new HashSet<Ordutegia>(0);
+     private Set<LarrialdiOrdutegia> larrialdiOrdutegiak = new HashSet<LarrialdiOrdutegia>(0);
+     private Set<Ordutegia> ordutegiak = new HashSet<Ordutegia>(0);
 
     public Gela() {
     }
@@ -22,10 +22,10 @@ public class Gela  implements java.io.Serializable {
     public Gela(int zbk) {
         this.zbk = zbk;
     }
-    public Gela(int zbk, Set<Larrialdiordutegia> larrialdiordutegias, Set<Ordutegia> ordutegias) {
+    public Gela(int zbk, Set<LarrialdiOrdutegia> larrialdiordutegias, Set<Ordutegia> ordutegias) {
        this.zbk = zbk;
-       this.larrialdiordutegias = larrialdiordutegias;
-       this.ordutegias = ordutegias;
+       this.larrialdiOrdutegiak = larrialdiordutegias;
+       this.ordutegiak = ordutegias;
     }
    
     public int getZbk() {
@@ -35,19 +35,19 @@ public class Gela  implements java.io.Serializable {
     public void setZbk(int zbk) {
         this.zbk = zbk;
     }
-    public Set<Larrialdiordutegia> getLarrialdiordutegias() {
-        return this.larrialdiordutegias;
+    public Set<LarrialdiOrdutegia> getLarrialdiOrdutegiak() {
+        return this.larrialdiOrdutegiak;
     }
     
-    public void setLarrialdiordutegias(Set<Larrialdiordutegia> larrialdiordutegias) {
-        this.larrialdiordutegias = larrialdiordutegias;
+    public void setLarrialdiOrdutegiak(Set<LarrialdiOrdutegia> larrialdiOrdutegiak) {
+        this.larrialdiOrdutegiak = larrialdiOrdutegiak;
     }
-    public Set<Ordutegia> getOrdutegias() {
-        return this.ordutegias;
+    public Set<Ordutegia> getOrdutegiak() {
+        return this.ordutegiak;
     }
     
-    public void setOrdutegias(Set<Ordutegia> ordutegias) {
-        this.ordutegias = ordutegias;
+    public void setOrdutegiak(Set<Ordutegia> ordutegiak) {
+        this.ordutegiak = ordutegiak;
     }
 
 

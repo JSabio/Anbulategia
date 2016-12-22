@@ -9,12 +9,11 @@
     <property name="hibernate.connection.password"/>
     <mapping resource="domain/Espezialitatetxostena.hbm.xml"/>
     <mapping resource="domain/Larrialdia.hbm.xml"/>
-    <mapping resource="domain/Errezetak.hbm.xml"/>
     <mapping resource="domain/Froga.hbm.xml"/>
     <mapping resource="domain/Langilea.hbm.xml"/>
     <mapping resource="domain/Bolantea.hbm.xml"/>
     <mapping resource="domain/Zentrua.hbm.xml"/>
-    <mapping resource="domain/Larrialdiordutegia.hbm.xml"/>
+    <mapping resource="domain/LarrialdiOrdutegia.hbm.xml"/>
     <mapping resource="domain/Errezeta.hbm.xml"/>
     <mapping resource="domain/Gela.hbm.xml"/>
     <mapping resource="domain/Ordutegia.hbm.xml"/>

@@ -17,16 +17,15 @@ public class Gaixoa  implements java.io.Serializable {
      private Integer telefonoa;
      private String helbidea;
      private String pentsioduna;
-     private Set<Historiala> historialas = new HashSet<Historiala>(0);
-     private Set<Altabaja> altabajas = new HashSet<Altabaja>(0);
-     private Set<Errezetak> errezetaks = new HashSet<Errezetak>(0);
-     private Set<Larrialdia> larrialdias = new HashSet<Larrialdia>(0);
-     private Set<Bolantea> bolanteas = new HashSet<Bolantea>(0);
-     private Set<Tentsioa> tentsioas = new HashSet<Tentsioa>(0);
-     private Set<Errezeta> errezetas = new HashSet<Errezeta>(0);
-     private Set<Kontsulta> kontsultas = new HashSet<Kontsulta>(0);
-     private Set<Espezialitatetxostena> espezialitatetxostenas = new HashSet<Espezialitatetxostena>(0);
-     private Set<Froga> frogas = new HashSet<Froga>(0);
+     private Set<Historiala> historialak = new HashSet<Historiala>(0);
+     private Set<AltaBaja> altaBajak = new HashSet<AltaBaja>(0);
+     private Set<Larrialdia> larrialdiak = new HashSet<Larrialdia>(0);
+     private Set<Bolantea> bolanteak = new HashSet<Bolantea>(0);
+     private Set<Tentsioa> tentsioak = new HashSet<Tentsioa>(0);
+     private Set<Errezeta> errezetak = new HashSet<Errezeta>(0);
+     private Set<Kontsulta> kontsultak = new HashSet<Kontsulta>(0);
+     private Set<EspezialitateTxostena> espezialitateTxostenak = new HashSet<EspezialitateTxostena>(0);
+     private Set<Froga> frogak = new HashSet<Froga>(0);
 
     public Gaixoa() {
     }
@@ -35,23 +34,22 @@ public class Gaixoa  implements java.io.Serializable {
     public Gaixoa(int gz) {
         this.gz = gz;
     }
-    public Gaixoa(int gz, String izena, String abizena, Integer telefonoa, String helbidea, String pentsioduna, Set<Historiala> historialas, Set<Altabaja> altabajas, Set<Errezetak> errezetaks, Set<Larrialdia> larrialdias, Set<Bolantea> bolanteas, Set<Tentsioa> tentsioas, Set<Errezeta> errezetas, Set<Kontsulta> kontsultas, Set<Espezialitatetxostena> espezialitatetxostenas, Set<Froga> frogas) {
+    public Gaixoa(int gz, String izena, String abizena, Integer telefonoa, String helbidea, String pentsioduna, Set<Historiala> historialas, Set<AltaBaja> altabajas, Set<Larrialdia> larrialdias, Set<Bolantea> bolanteas, Set<Tentsioa> tentsioas, Set<Errezeta> errezetas, Set<Kontsulta> kontsultas, Set<EspezialitateTxostena> espezialitatetxostenas, Set<Froga> frogas) {
        this.gz = gz;
        this.izena = izena;
        this.abizena = abizena;
        this.telefonoa = telefonoa;
        this.helbidea = helbidea;
        this.pentsioduna = pentsioduna;
-       this.historialas = historialas;
-       this.altabajas = altabajas;
-       this.errezetaks = errezetaks;
-       this.larrialdias = larrialdias;
-       this.bolanteas = bolanteas;
-       this.tentsioas = tentsioas;
-       this.errezetas = errezetas;
-       this.kontsultas = kontsultas;
-       this.espezialitatetxostenas = espezialitatetxostenas;
-       this.frogas = frogas;
+       this.historialak = historialas;
+       this.altaBajak = altabajas;
+       this.larrialdiak = larrialdias;
+       this.bolanteak = bolanteas;
+       this.tentsioak = tentsioas;
+       this.errezetak = errezetas;
+       this.kontsultak = kontsultas;
+       this.espezialitateTxostenak = espezialitatetxostenas;
+       this.frogak = frogas;
     }
    
     public int getGz() {
@@ -96,75 +94,69 @@ public class Gaixoa  implements java.io.Serializable {
     public void setPentsioduna(String pentsioduna) {
         this.pentsioduna = pentsioduna;
     }
-    public Set<Historiala> getHistorialas() {
-        return this.historialas;
+    public Set<Historiala> getHistorialak() {
+        return this.historialak;
     }
     
-    public void setHistorialas(Set<Historiala> historialas) {
-        this.historialas = historialas;
+    public void setHistorialak(Set<Historiala> historialak) {
+        this.historialak = historialak;
     }
-    public Set<Altabaja> getAltabajas() {
-        return this.altabajas;
-    }
-    
-    public void setAltabajas(Set<Altabaja> altabajas) {
-        this.altabajas = altabajas;
-    }
-    public Set<Errezetak> getErrezetaks() {
-        return this.errezetaks;
+    public Set<AltaBaja> getAltaBajak() {
+        return this.altaBajak;
     }
     
-    public void setErrezetaks(Set<Errezetak> errezetaks) {
-        this.errezetaks = errezetaks;
+    public void setAltaBajak(Set<AltaBaja> altaBajak) {
+        this.altaBajak = altaBajak;
     }
-    public Set<Larrialdia> getLarrialdias() {
-        return this.larrialdias;
-    }
-    
-    public void setLarrialdias(Set<Larrialdia> larrialdias) {
-        this.larrialdias = larrialdias;
-    }
-    public Set<Bolantea> getBolanteas() {
-        return this.bolanteas;
+
+    public Set<Larrialdia> getLarrialdiak() {
+        return this.larrialdiak;
     }
     
-    public void setBolanteas(Set<Bolantea> bolanteas) {
-        this.bolanteas = bolanteas;
+    public void setLarrialdiak(Set<Larrialdia> larrialdiak) {
+        this.larrialdiak = larrialdiak;
     }
-    public Set<Tentsioa> getTentsioas() {
-        return this.tentsioas;
-    }
-    
-    public void setTentsioas(Set<Tentsioa> tentsioas) {
-        this.tentsioas = tentsioas;
-    }
-    public Set<Errezeta> getErrezetas() {
-        return this.errezetas;
+    public Set<Bolantea> getBolanteak() {
+        return this.bolanteak;
     }
     
-    public void setErrezetas(Set<Errezeta> errezetas) {
-        this.errezetas = errezetas;
+    public void setBolanteak(Set<Bolantea> bolanteak) {
+        this.bolanteak = bolanteak;
     }
-    public Set<Kontsulta> getKontsultas() {
-        return this.kontsultas;
-    }
-    
-    public void setKontsultas(Set<Kontsulta> kontsultas) {
-        this.kontsultas = kontsultas;
-    }
-    public Set<Espezialitatetxostena> getEspezialitatetxostenas() {
-        return this.espezialitatetxostenas;
+    public Set<Tentsioa> getTentsioak() {
+        return this.tentsioak;
     }
     
-    public void setEspezialitatetxostenas(Set<Espezialitatetxostena> espezialitatetxostenas) {
-        this.espezialitatetxostenas = espezialitatetxostenas;
+    public void setTentsioak(Set<Tentsioa> tentsioak) {
+        this.tentsioak = tentsioak;
     }
-    public Set<Froga> getFrogas() {
-        return this.frogas;
+    public Set<Errezeta> getErrezetak() {
+        return this.errezetak;
     }
     
-    public void setFrogas(Set<Froga> frogas) {
-        this.frogas = frogas;
+    public void setErrezetak(Set<Errezeta> errezetak) {
+        this.errezetak = errezetak;
+    }
+    public Set<Kontsulta> getKontsultak() {
+        return this.kontsultak;
+    }
+    
+    public void setKontsultak(Set<Kontsulta> kontsultak) {
+        this.kontsultak = kontsultak;
+    }
+    public Set<EspezialitateTxostena> getEspezialitateTxostenak() {
+        return this.espezialitateTxostenak;
+    }
+    
+    public void setEspezialitateTxostenak(Set<EspezialitateTxostena> espezialitateTxostenak) {
+        this.espezialitateTxostenak = espezialitateTxostenak;
+    }
+    public Set<Froga> getFrogak() {
+        return this.frogak;
+    }
+    
+    public void setFrogak(Set<Froga> frogak) {
+        this.frogak = frogak;
     }
 
 

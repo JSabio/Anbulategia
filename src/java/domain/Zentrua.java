@@ -15,8 +15,8 @@ public class Zentrua  implements java.io.Serializable {
      private String izena;
      private String hiria;
      private Integer telefonoa;
-     private Set<Froga> frogas = new HashSet<Froga>(0);
-     private Set<Langilea> langileas = new HashSet<Langilea>(0);
+     private Set<Froga> frogak = new HashSet<Froga>(0);
+     private Set<Langilea> langileak = new HashSet<Langilea>(0);
 
     public Zentrua() {
     }
@@ -30,8 +30,8 @@ public class Zentrua  implements java.io.Serializable {
        this.izena = izena;
        this.hiria = hiria;
        this.telefonoa = telefonoa;
-       this.frogas = frogas;
-       this.langileas = langileas;
+       this.frogak = frogas;
+       this.langileak = langileas;
     }
    
     public int getZid() {
@@ -62,19 +62,19 @@ public class Zentrua  implements java.io.Serializable {
     public void setTelefonoa(Integer telefonoa) {
         this.telefonoa = telefonoa;
     }
-    public Set<Froga> getFrogas() {
-        return this.frogas;
+    public Set<Froga> getFrogak() {
+        return this.frogak;
     }
     
-    public void setFrogas(Set<Froga> frogas) {
-        this.frogas = frogas;
+    public void setFrogak(Set<Froga> frogak) {
+        this.frogak = frogak;
     }
-    public Set<Langilea> getLangileas() {
-        return this.langileas;
+    public Set<Langilea> getLangileak() {
+        return this.langileak;
     }
     
-    public void setLangileas(Set<Langilea> langileas) {
-        this.langileas = langileas;
+    public void setLangileak(Set<Langilea> langileak) {
+        this.langileak = langileak;
     }
 
 

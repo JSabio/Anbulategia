@@ -22,61 +22,55 @@
     <property name="pentsioduna" type="string">
       <column length="3" name="Pentsioduna"/>
     </property>
-    <set fetch="select" inverse="true" lazy="true" name="historialas" table="historiala">
+    <set fetch="select" inverse="true" lazy="true" name="historialak" table="historiala">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Historiala"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="altabajas" table="altabaja">
+    <set fetch="select" inverse="true" lazy="true" name="altaBajak" table="altabaja">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
-      <one-to-many class="domain.Altabaja"/>
+      <one-to-many class="domain.AltaBaja"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="errezetaks" table="errezetak">
-      <key>
-        <column name="GaixoaGZ" not-null="true"/>
-      </key>
-      <one-to-many class="domain.Errezetak"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="larrialdias" table="larrialdia">
+    <set fetch="select" inverse="true" lazy="true" name="larrialdiak" table="larrialdia">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Larrialdia"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="bolanteas" table="bolantea">
+    <set fetch="select" inverse="true" lazy="true" name="bolanteak" table="bolantea">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Bolantea"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="tentsioas" table="tentsioa">
+    <set fetch="select" inverse="true" lazy="true" name="tentsioak" table="tentsioa">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Tentsioa"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="errezetas" table="errezeta">
+    <set fetch="select" inverse="true" lazy="true" name="errezetak" table="errezeta">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Errezeta"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="kontsultas" table="kontsulta">
+    <set fetch="select" inverse="true" lazy="true" name="kontsultak" table="kontsulta">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
       <one-to-many class="domain.Kontsulta"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="espezialitatetxostenas" table="espezialitatetxostena">
+    <set fetch="select" inverse="true" lazy="true" name="espezialitateTxostenak" table="espezialitatetxostena">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>
-      <one-to-many class="domain.Espezialitatetxostena"/>
+      <one-to-many class="domain.EspezialitateTxostena"/>
     </set>
-    <set fetch="select" inverse="true" lazy="true" name="frogas" table="froga">
+    <set fetch="select" inverse="true" lazy="true" name="frogak" table="froga">
       <key>
         <column name="GaixoaGZ" not-null="true"/>
       </key>

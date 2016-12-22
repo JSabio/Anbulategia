@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 22-dic-2016 13:37:20 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="anbulategia" name="domain.Altabaja" optimistic-lock="version" table="altabaja">
+  <class catalog="anbulategia" name="domain.AltaBaja" optimistic-lock="version" table="altabaja">
     <id name="id" type="int">
       <column name="ID"/>
       <generator class="assigned"/>
