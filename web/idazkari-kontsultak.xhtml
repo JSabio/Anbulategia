@@ -36,7 +36,7 @@
                       <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":sendagilekberria" oncomplete="PF('sendagile-kberria').show();"/>
                     </h:panelGroup>
                     <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
-                    <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                    <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
                   </h:panelGroup>
                 </f:facet>
               </p:toolbar>
@@ -86,7 +86,7 @@
                       <p:commandButton value="Kontsulta" icon="ui-icon-plusthick" update=":erizainkberria" oncomplete="PF('erizain-kberria').show();"/>
                     </h:panelGroup>
                     <p:button value="Menura" outcome="idazkari-menua" icon="ui-icon-triangle-1-w"/>
-                    <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+                    <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
                   </h:panelGroup>
                 </f:facet>
               </p:toolbar>

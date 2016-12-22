@@ -20,7 +20,7 @@ public class Langilea  implements java.io.Serializable {
      private Integer telefonoa;
      private String helbidea;
      private String mota;
-     private Integer espIzena;
+     private String espIzena;
      private Set<EspezialitateTxostena> espezialitateTxostenak = new HashSet<EspezialitateTxostena>(0);
      private Set<Errezeta> errezetak = new HashSet<Errezeta>(0);
      private Set<AltaBaja> altaBajak = new HashSet<AltaBaja>(0);
@@ -38,7 +38,7 @@ public class Langilea  implements java.io.Serializable {
         this.gz = gz;
         this.zentrua = zentrua;
     }
-    public Langilea(int gz, Zentrua zentrua, String erabiltzailea, String pasahitza, String izena, String abizena, Integer telefonoa, String helbidea, String mota, Integer espIzena, Set<EspezialitateTxostena> espezialitatetxostenas, Set<Errezeta> errezetas, Set<AltaBaja> altabajas, Set<Larrialdia> larrialdias, Set<Ordutegia> ordutegias, Set<Kontsulta> kontsultas, Set<LarrialdiOrdutegia> larrialdiordutegias, Set<Bolantea> bolanteas) {
+    public Langilea(int gz, Zentrua zentrua, String erabiltzailea, String pasahitza, String izena, String abizena, Integer telefonoa, String helbidea, String mota, String espIzena, Set<EspezialitateTxostena> espezialitatetxostenas, Set<Errezeta> errezetas, Set<AltaBaja> altabajas, Set<Larrialdia> larrialdias, Set<Ordutegia> ordutegias, Set<Kontsulta> kontsultas, Set<LarrialdiOrdutegia> larrialdiordutegias, Set<Bolantea> bolanteas) {
        this.gz = gz;
        this.zentrua = zentrua;
        this.erabiltzailea = erabiltzailea;
@@ -122,11 +122,11 @@ public class Langilea  implements java.io.Serializable {
     public void setMota(String mota) {
         this.mota = mota;
     }
-    public Integer getEspIzena() {
+    public String getEspIzena() {
         return this.espIzena;
     }
     
-    public void setEspIzena(Integer espIzena) {
+    public void setEspIzena(String espIzena) {
         this.espIzena = espIzena;
     }
     public Set<EspezialitateTxostena> getEspezialitateTxostenak() {

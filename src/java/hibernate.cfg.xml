@@ -2,12 +2,13 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/anbulategia</property>
+    <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"/>
-    <mapping resource="domain/Espezialitatetxostena.hbm.xml"/>
+    <mapping resource="domain/EspezialitateTxostena.hbm.xml"/>
     <mapping resource="domain/Larrialdia.hbm.xml"/>
     <mapping resource="domain/Froga.hbm.xml"/>
     <mapping resource="domain/Langilea.hbm.xml"/>
@@ -21,6 +22,6 @@
     <mapping resource="domain/Tentsioa.hbm.xml"/>
     <mapping resource="domain/Gaixoa.hbm.xml"/>
     <mapping resource="domain/Historiala.hbm.xml"/>
-    <mapping resource="domain/Altabaja.hbm.xml"/>
+    <mapping resource="domain/AltaBaja.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

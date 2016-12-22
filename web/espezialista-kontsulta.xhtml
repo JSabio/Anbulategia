@@ -28,7 +28,7 @@
           <p:toolbar id="tb">
             <f:facet name="right">
               <p:button value="Atzera" outcome="espezialista-kontsultak" icon="ui-icon-triangle-1-w"/>
-              <p:button value="Irten" outcome="login" icon="ui-icon-circle-close"/>
+              <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
             </f:facet>
           </p:toolbar>
           <p:sticky target="tb" />
@@ -43,7 +43,7 @@
                   <h:outputText value="Izena: "/>
                   <h:outputText value="#{gaixoaKontsultaBean.gaixoa.izena}"/>
                   <h:outputText value="Abizenak: "/>
-                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.abizenak}"/>
+                  <h:outputText value="#{gaixoaKontsultaBean.gaixoa.abizena}"/>
                   <h:outputText value="Helbidea "/>
                   <h:outputText value="#{gaixoaKontsultaBean.gaixoa.helbidea}"/>
                   <h:outputText value="Telefonoa "/>
@@ -76,7 +76,7 @@
                   </p:row>
                   <p:row>
                     <h:outputText value="Abizenak: " /><br/>
-                    <p:inputText value="#{gaixoaKontsultaBean.abizenak}" style="width: 200px"/>
+                    <p:inputText value="#{gaixoaKontsultaBean.abizena}" style="width: 200px"/>
                   </p:row>
                   <p:row>
                     <h:outputText value="Helbidea: " /><br/>

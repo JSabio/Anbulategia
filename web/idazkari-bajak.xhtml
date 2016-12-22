@@ -22,7 +22,7 @@
             <p:menuitem value="Bajak" outcome="idazkari-bajak.xhtml" icon="ui-icon-bookmark"/>
             <p:menuitem value="Gaixo berria" outcome="idazkari-gaixoberria.xhtml" icon="ui-icon-plusthick"/>
             <p:menuitem value="Kanpo kontsultak" outcome="idazkari-kanpokontsultak.xhtml" icon="ui-icon-seek-next"/>
-            <p:menuitem value="Irten" outcome="login.xhtml" icon="ui-icon-circle-close"/>
+            <p:menuitem value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
           </p:menu>
         </h:form>
       </p:layoutUnit>
@@ -39,7 +39,7 @@
                     <h:outputText value="#{gaixoa.gz}"/>
                   </p:column>
                   <p:column>
-                    <h:outputText value="#{gaixoa.izena} #{gaixoa.abizenak}"/>
+                    <h:outputText value="#{gaixoa.izena} #{gaixoa.abizena}"/>
                   </p:column>
                 </p:autoComplete>
               </p:row>

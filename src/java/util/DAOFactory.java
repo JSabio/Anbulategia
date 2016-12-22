@@ -11,10 +11,10 @@ import domain.*;
  * @author Mendel
  */
 public class DAOFactory {
-    
-   /* public static LangileaDAO langileaDAOSortu(){
+
+    public static LangileaDAO langileaDAOSortu() {
         LangileaDAOHibernate langileaDAO = new LangileaDAOHibernate();
         return langileaDAO;
-    }*/
+    }
     
 }

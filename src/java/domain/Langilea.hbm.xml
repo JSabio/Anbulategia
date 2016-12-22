@@ -28,10 +28,10 @@
     <property name="helbidea" type="string">
       <column length="50" name="Helbidea"/>
     </property>
-    <property name="mota" type="java.lang.Integer">
+    <property name="mota" type="string">
       <column name="Mota"/>
     </property>
-    <property name="espIzena" type="java.lang.Integer">
+    <property name="espIzena" type="string">
       <column name="EspIzena"/>
     </property>
     <set fetch="select" inverse="true" lazy="true" name="espezialitateTxostenak" table="espezialitatetxostena">

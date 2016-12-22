@@ -21,12 +21,11 @@ import util.DAOFactory;
 @SessionScoped
 public class LangileaBean {
 
-    private Langilea langilea;
+    private Langilea langilea = new Langilea();
     private String erabiltzailea;
     private String pasahitza;
 
-
-    public LangileaBean(){
+    public LangileaBean() {
     }
 
     /**
@@ -70,51 +69,37 @@ public class LangileaBean {
     public void setPasahitza(String pasahitza) {
         this.pasahitza = pasahitza;
     }
-    /*
-    public String login() {
-       LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
-       List<Langilea> langileak = langileaDAO.listaratu();
-       
-        for (Langilea langilea1 : langileak) {
-            if(langilea1.getErabiltzailea().compareTo(this.erabiltzailea)==0 && langilea1.getPasahitza().compareTo(this.pasahitza)==0){
-                if(langilea1 instanceof Idazkaria){
-                    return "idazkari-menua?faces-redirect=true";
-                }
-                if(langilea1 instanceof Erizaina){
-                    return "erizain-kontsultak?faces-redirect=true";
-                }
-                if(langilea1 instanceof Sendagilea){
-                    return "sendagile-kontsultak?faces-redirect=true";
-                }
-                if(langilea1 instanceof EspezialitateSendagilea){
-                    return "espezialista-kontsultak?faces-redirect=true";
-                }
-            }
-        }
-        
-        FacesContext context = FacesContext.getCurrentInstance(); 
-        FacesMessage message = new FacesMessage("Erabiltzaile eta/edo pasahitz desegokia"); 
-        context.addMessage("loginForm", message); 
-        return "error";
-   
-    }
-    
-    public String saioa_Itxi() throws Throwable{
-       this.setErabiltzailea(null);
-        this.setPasahitza(null);
-        LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
-        return langileaDAO.saioaItxi();
-    }
-    
-    public String proba(){
-        //return "idazkari-menua?faces-redirect=true";
-        FacesContext context = FacesContext.getCurrentInstance(); 
-        FacesMessage message = new FacesMessage("Erabiltzaile eta/edo pasahitz desegokia"); 
-        context.addMessage("loginForm", message); 
-        return "error";
-    }*/
-}
-   
-    
-   
 
+    public String login() {
+        LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
+        if(langileaDAO.egiaztatu(erabiltzailea, pasahitza)){
+            langilea = langileaDAO.getLangilea(erabiltzailea);
+            if(langilea.getMota().equals("Idazkaria"))
+                return "idazkari-menua?faces-redirect=true";
+            if(langilea.getMota().equals("Sendagilea")){
+                if(langilea.getEspIzena().equals("Orokorra"))
+                    return "sendagile-kontsultak?faces-redirect=true";
+                else
+                    return "espezialista-kontsultak?faces-redirect=true";
+            }
+            if(langilea.getMota().equals("Erizaina"))
+                return "erizain-kontsultak?faces-redirect=true";
+        } else{
+            FacesContext context = FacesContext.getCurrentInstance(); 
+            FacesMessage message = new FacesMessage("Erabiltzaile eta/edo pasahitz desegokia."); 
+            context.addMessage("loginForm", message); 
+            return "error";
+        }
+        return null;
+    }
+
+    public String logout() {
+        this.setErabiltzailea(null);
+        this.setPasahitza(null);
+        this.setLangilea(null);
+        LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
+        langileaDAO.logout();
+        return "login?faces-redirect=true";
+    }
+    
+}

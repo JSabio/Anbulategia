@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head><title>Kontsulta</title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+  </h:head>
+  <h:body>
+    <h:outputStylesheet name="./css/style.css" />
+    <p:layout fullPage="true">
+      <p:layoutUnit position="north" size="80" >
+        <h1>ANBULATEGIA</h1>
+      </p:layoutUnit>
+      <p:layoutUnit position="center" >
+        <p:tabView>
+          <p:tab title="Tentsioa hartu">
+            <h:form>
+              <p:toolbar id="tb">
+                <f:facet name="left">
+                  <p:button value="Atzera" outcome="erizain-kontsultak" icon="ui-icon-triangle-1-w"/>
+                </f:facet>
+                <f:facet name="right">
+                  <h:outputText value="Erizaina: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
+                  <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
+                </f:facet>
+              </p:toolbar>
+              <p:sticky target="tb" />
+            </h:form>
+            <br/>
+            <div align="center">
+              <h:form>
+                <p:panelGrid columns="1" style="background:none">
+                  <p:row>
+                    <h:outputText value="Gaixoa: " /><br/>
+                    <h:outputText value="_____ ________" />
+                  </p:row>
+
+                  <p:row>
+                    <h:outputText value="Tentsio altua:"/><br/>
+                    <p:inputText id="altua" value=""/>
+                  </p:row>
+
+                  <p:row>
+                    <h:outputText value="Tentsio baxua: "/><br/>
+                    <p:inputText id="baxua" value=""/>
+                  </p:row>
+
+                  <p:row>
+                    <p:commandButton value="Gorde" style="width:100%"/>
+                  </p:row>
+                </p:panelGrid>
+              </h:form>
+            </div>
+          </p:tab>
+          <p:tab title="Froga">
+            <h:form>
+              <p:toolbar id="tb">
+                <f:facet name="left">
+                  <p:button value="Atzera" outcome="erizain-kontsultak" icon="ui-icon-triangle-1-w"/>
+                </f:facet>
+                <f:facet name="right">
+                  <h:outputText value="Erizaina: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
+                  <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
+                </f:facet>
+              </p:toolbar>
+              <p:sticky target="tb" />
+            </h:form>
+            <br/>
+            <div align="center">
+              <h:form>
+                <p:panelGrid columns="1" style="background:none">
+                  <p:row>
+                    <h:outputText value="Gaixoa: " /><br/>
+                    <h:outputText value="_____ ________" />
+                  </p:row>
+
+                  <p:row>
+                    <h:outputText value="Froga mota:"/><br/>
+                    <p:inputText id="mota" value=""/>
+                  </p:row>
+
+                  <p:row>
+                    <h:outputText value="Oharrak: "/><br/>
+                    <p:inputTextarea rows="6" cols="30" />
+                  </p:row>
+
+                  <p:row>
+                    <p:commandButton value="Gorde" style="width:100%"/>
+                  </p:row>
+                </p:panelGrid>
+              </h:form>
+            </div>
+          </p:tab>
+        </p:tabView>
+      </p:layoutUnit>
+    </p:layout>
+  </h:body>
+</html>

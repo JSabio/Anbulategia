@@ -21,7 +21,8 @@
               <p:calendar/>
             </f:facet>
             <f:facet name="right">
-              <p:commandButton value="Irten" action="login" icon="ui-icon-circle-close"/>
+              <h:outputText value="#{langileaBean.langilea.espIzena}: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
+              <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
             </f:facet>
           </p:toolbar>
           <p:sticky target="tb" />
