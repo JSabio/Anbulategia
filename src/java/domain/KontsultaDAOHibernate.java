@@ -15,15 +15,15 @@ import util.HibernateUtil;
  *
  * @author Eneko
  */
-public class LangileaDAOHibernate implements LangileaDAO {
+public class KontsultaDAOHibernate implements KontsultaDAO {
 
     private Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
     @Override
-    public void gorde(Langilea langilea) {
+    public void gorde(Kontsulta kontsulta) {
         try {
             session.beginTransaction();
-            session.save(langilea);
+            session.save(kontsulta);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,10 +32,10 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public void ezabatu(Langilea langilea) {
+    public void ezabatu(Kontsulta kontsulta) {
         try {
             session.beginTransaction();
-            session.delete(langilea);
+            session.delete(kontsulta);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,10 +44,10 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public void editatu(Langilea langilea) {
+    public void editatu(Kontsulta kontsulta) {
         try {
             session.beginTransaction();
-            session.update(langilea);
+            session.update(kontsulta);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,63 +56,55 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public boolean egiaztatu(String erabiltzailea, String pasahitza) {
+    public List<Kontsulta> listaratu() {
         try {
             session.beginTransaction();
-            String hql = "from Langilea where Erabiltzailea = ? and Pasahitza = ?";
-            Query kontsulta = session.createQuery(hql).setParameter(0, erabiltzailea).setParameter(1, pasahitza);
-            List<Langilea> lista = kontsulta.list();
+            Query kontsulta = session.createQuery("from Kontsulta");
+            List<Kontsulta> lista = kontsulta.list();
             session.getTransaction().commit();
             if (lista.isEmpty()) {
-                return false;
-            } else {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.getTransaction().rollback();
-            return false;
-        }
-    }
-
-    @Override
-    public Langilea getLangilea(String erabiltzailea){
-        try {
-            session = this.session.getSessionFactory().openSession();
-            session.beginTransaction();
-            String hql = "from Langilea where Erabiltzailea = ?";
-            Query kontsulta = session.createQuery(hql).setParameter(0, erabiltzailea);
-            Langilea langilea = (Langilea) kontsulta.uniqueResult();
-            session.getTransaction().commit();
-            return langilea;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.getTransaction().rollback();
-            return new Langilea();
-        }
-    }
-    
-    @Override
-    public void logout() {
-        session.close();
-    }
-
-    @Override
-    public List<Langilea> listaratu() {
-        try {
-            session.beginTransaction();
-            Query kontsulta = session.createQuery("from Langilea");
-            List<Langilea> lista = kontsulta.list();
-            session.getTransaction().commit();
-            if (lista.isEmpty()) {
-                return new ArrayList<Langilea>();
+                return new ArrayList<Kontsulta>();
             } else {
                 return lista;
             }
         } catch (Exception e) {
             e.printStackTrace();
             session.getTransaction().rollback();
-            return new ArrayList<Langilea>();
+            return new ArrayList<Kontsulta>();
+        }
+    }
+
+    @Override
+    public List<Kontsulta> getKontsultak(Langilea langile) {
+        try {
+            session.beginTransaction();
+            Query kontsulta = session.createQuery("from Kontsulta where LangileaGZ = ?").setParameter(0, langile.getGz());
+            List<Kontsulta> lista = kontsulta.list();
+            session.getTransaction().commit();
+            if (lista.isEmpty()) {
+                return new ArrayList<Kontsulta>();
+            } else {
+                return lista;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return new ArrayList<Kontsulta>();
+        }
+    }
+
+    @Override
+    public int getMaxID() {
+        try {
+            session.beginTransaction();
+            Query kontsulta = session.createQuery("SELECT max(ID) from Kontsulta as k");
+            int max = (int) kontsulta.uniqueResult();
+            session.getTransaction().commit();
+            return max;
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return 0;
         }
     }
 

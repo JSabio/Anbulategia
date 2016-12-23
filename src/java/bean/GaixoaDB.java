@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package bean;
 
 import domain.*;
 import java.util.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import util.DAOFactory;
 
 /**
  *
@@ -18,34 +19,12 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class GaixoaDB {
-    private List<Gaixoa> gaixoak = new ArrayList<Gaixoa>();
+    private List<Gaixoa> gaixoak;
     
     public GaixoaDB(){
         
-        Gaixoa gaixoa = new Gaixoa();
-        gaixoa.setGz(5000);
-        gaixoa.setIzena("Gaixoa5000");
-        gaixoa.setAbizena("Abizena5000");
-        gaixoa.setHelbidea("Helbidea5000");
-        gaixoak.add(gaixoa);
-        
-        gaixoa = new Gaixoa();
-        gaixoa.setGz(5001);
-        gaixoa.setIzena("Gaixoa5001");
-        gaixoa.setAbizena("Abizena5001");
-        gaixoak.add(gaixoa);
-        
-        gaixoa = new Gaixoa();
-        gaixoa.setGz(5002);
-        gaixoa.setIzena("Gaixoa5002");
-        gaixoa.setAbizena("Abizena5002");
-        gaixoak.add(gaixoa);
-        
-        gaixoa = new Gaixoa();
-        gaixoa.setGz(5003);
-        gaixoa.setIzena("Gaixoa5003");
-        gaixoa.setAbizena("Abizena5003");
-        gaixoak.add(gaixoa);
+        GaixoaDAO gaixoaDAO = DAOFactory.gaixoaDAOSortu();
+        gaixoak = gaixoaDAO.listaratu();
         
     }
 

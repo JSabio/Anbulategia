@@ -6,8 +6,10 @@
 package bean;
 
 import domain.*;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import util.DAOFactory;
 
 /**
  *
@@ -15,7 +17,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class GaixoaBean {
+public class GaixoaBean implements Serializable {
 
     private int gz;
     private String izena; 
@@ -111,16 +113,23 @@ public class GaixoaBean {
     public void setPentsioduna(boolean pentsioduna) {
         this.pentsioduna = pentsioduna;
     }
-
-    public String gaixoberria() {
-        //gaixoa = new Gaixoa(gz,izena,abizena,telefonoa,helbidea);
-        //gaixoaDAO.gorde(gaixoa);
-        gz = 0;
-        izena = null;
-        abizena = null;
-        telefonoa = 0;
-        helbidea = null;
+    
+    public String gaixoBerria() {
+        gaixoa = new Gaixoa();
+        gaixoa.setGz(gz);
+        gaixoa.setIzena(izena);
+        gaixoa.setAbizena(abizena);
+        gaixoa.setHelbidea(helbidea);
+        gaixoa.setTelefonoa(telefonoa);
+        if(pentsioduna)
+            gaixoa.setPentsioduna("Bai");
+        else
+            gaixoa.setPentsioduna("Ez");
+        
+        GaixoaDAO gaixoaDAO = DAOFactory.gaixoaDAOSortu();
+        gaixoaDAO.gorde(gaixoa);
         return "idazkari-menua?faces-redirect=true";
+        
     }
 
 }

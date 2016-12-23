@@ -17,8 +17,9 @@
         <h:form>
           <p:toolbar id="tb">
             <f:facet name="left">
-              <h:outputText value="Eguna: "/>
-              <p:calendar/>
+              <h:outputLabel value="Eguna: "/>
+              <p:calendar value="#{langileakBean.sendagileKEguna}" pattern="yyyy/MM/dd" />
+              <p:commandButton value="Kontsultak azaldu" action="#{langileakBean.sendagileKontsultakAzaldu()}" update="kontsultak"/>
             </f:facet>
             <f:facet name="right">
               <h:outputText value="#{langileaBean.langilea.espIzena}: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
@@ -27,31 +28,35 @@
           </p:toolbar>
           <p:sticky target="tb" />
         </h:form>
-        <p:dataTable id="kontsultak" var="kontsulta">
-            <p:column>
-              <f:facet name="header">Ordua</f:facet>
-              <h:outputText value=""/>
-            </p:column>
-            <p:column>
-              <f:facet name="header">GSZ</f:facet>
-              <h:outputText value=""/>
-            </p:column>
+        <p:dataTable id="kontsultak" var="kontsulta" value="#{langileakBean.sendagileKontsultak}">
+          <p:column>
+            <f:facet name="header">Eguna</f:facet>
+            <h:outputText value="#{kontsulta.eguna}"/>
+          </p:column>
+          <p:column>
+            <f:facet name="header">Ordua</f:facet>
+            <h:outputText value="#{kontsulta.ordua}"/>
+          </p:column>
+          <p:column>
+            <f:facet name="header">GSZ</f:facet>
+            <h:outputText value="#{kontsulta.gaixoa.gz}"/>
+          </p:column>
 
-            <p:column>
-              <f:facet name="header">Izena</f:facet>
-              <h:outputText value=""/>
-            </p:column>
+          <p:column>
+            <f:facet name="header">Izena</f:facet>
+            <h:outputText value="#{kontsulta.gaixoa.izena}"/>
+          </p:column>
 
-            <p:column>
-              <f:facet name="header">Abizenak</f:facet>
-              <h:outputText value=""/>
-            </p:column>
+          <p:column>
+            <f:facet name="header">Abizenak</f:facet>
+            <h:outputText value="#{kontsulta.gaixoa.abizena}"/>
+          </p:column>
 
-            <p:column>
-              <f:facet name="header"></f:facet>
-              <p:commandLink value="Aurrera"/>
-            </p:column>
-          </p:dataTable> 
+          <p:column>
+            <f:facet name="header"></f:facet>
+            <p:commandLink  value="Aurrera"/>
+          </p:column>
+        </p:dataTable>
       </p:layoutUnit>
     </p:layout>
   </h:body>

@@ -17,4 +17,14 @@ public class DAOFactory {
         return langileaDAO;
     }
     
+    public static GaixoaDAO gaixoaDAOSortu(){
+        GaixoaDAOHibernate gaixoaDAO = new GaixoaDAOHibernate();
+        return gaixoaDAO;
+    }
+    
+    public static KontsultaDAO kontsultaDAOSortu(){
+        KontsultaDAOHibernate kontsultaDAO = new KontsultaDAOHibernate();
+        return kontsultaDAO;
+    }
+    
 }

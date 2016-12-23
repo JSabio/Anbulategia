@@ -35,29 +35,34 @@
                 <h:outputText value="GSZ: " /><br/>
                 <p:inputText id="gz" value="#{gaixoaBean.gz}" styleClass="form"/>
               </p:row>
-              
+
               <p:row>
                 <h:outputText value="Izena: "/><br/>
                 <p:inputText id="izena" value="#{gaixoaBean.izena}" styleClass="form"/>
               </p:row>
-              
+
               <p:row>
                 <h:outputText value="Abizenak: "/><br/>
                 <p:inputText id="abizena" value="#{gaixoaBean.abizena}" styleClass="form"/>
               </p:row>
-              
+
               <p:row>
                 <h:outputText value="Telefonoa: "/><br/>
                 <p:inputText id="telefonoa" value="#{gaixoaBean.telefonoa}" styleClass="form"/>
               </p:row>
-              
+
               <p:row>
                 <h:outputText value="Helbidea: "/><br/>
                 <p:inputText id="helbidea" value="#{gaixoaBean.helbidea}" styleClass="form"/>
               </p:row>
-              
+
               <p:row>
-                <p:commandButton value="Bidali" styleClass="bidali" action="#{gaixoaBean.gaixoberria()}"/>
+                <h:outputText value="Pentsioduna: "/>
+                <p:selectBooleanButton id="pentsioduna" value="#{gaixoaBean.pentsioduna}" onLabel="Bai" offLabel="Ez" />
+              </p:row>
+
+              <p:row>
+                <p:commandButton value="Bidali" styleClass="bidali" action="#{gaixoaBean.gaixoBerria()}"/>
               </p:row>
             </p:panelGrid>
           </h:form>

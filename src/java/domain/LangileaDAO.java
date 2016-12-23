@@ -5,6 +5,8 @@
  */
 package domain;
 
+import java.util.List;
+
 /**
  *
  * @author Eneko
@@ -16,6 +18,7 @@ public interface LangileaDAO {
     public void editatu(Langilea langilea);
     public boolean egiaztatu(String erabiltzailea, String pasahitza);
     public Langilea getLangilea(String erabiltzailea);
+    public List<Langilea> listaratu();
     public void logout();
     
 }

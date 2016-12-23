@@ -15,15 +15,15 @@ import util.HibernateUtil;
  *
  * @author Eneko
  */
-public class LangileaDAOHibernate implements LangileaDAO {
+public class GaixoaDAOHibernate implements GaixoaDAO {
 
     private Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
     @Override
-    public void gorde(Langilea langilea) {
+    public void gorde(Gaixoa gaixoa) {
         try {
             session.beginTransaction();
-            session.save(langilea);
+            session.save(gaixoa);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,10 +32,10 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public void ezabatu(Langilea langilea) {
+    public void ezabatu(Gaixoa gaixoa) {
         try {
             session.beginTransaction();
-            session.delete(langilea);
+            session.delete(gaixoa);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,10 +44,10 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public void editatu(Langilea langilea) {
+    public void editatu(Gaixoa gaixoa) {
         try {
             session.beginTransaction();
-            session.update(langilea);
+            session.update(gaixoa);
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,11 +56,12 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public boolean egiaztatu(String erabiltzailea, String pasahitza) {
+    public boolean dago(String gz) {
         try {
+            int gsz = Integer.parseInt(gz);
             session.beginTransaction();
-            String hql = "from Langilea where Erabiltzailea = ? and Pasahitza = ?";
-            Query kontsulta = session.createQuery(hql).setParameter(0, erabiltzailea).setParameter(1, pasahitza);
+            String hql = "from Gaixoa where GZ = ?";
+            Query kontsulta = session.createQuery(hql).setParameter(0, gsz);
             List<Langilea> lista = kontsulta.list();
             session.getTransaction().commit();
             if (lista.isEmpty()) {
@@ -76,43 +77,38 @@ public class LangileaDAOHibernate implements LangileaDAO {
     }
 
     @Override
-    public Langilea getLangilea(String erabiltzailea){
-        try {
-            session = this.session.getSessionFactory().openSession();
-            session.beginTransaction();
-            String hql = "from Langilea where Erabiltzailea = ?";
-            Query kontsulta = session.createQuery(hql).setParameter(0, erabiltzailea);
-            Langilea langilea = (Langilea) kontsulta.uniqueResult();
-            session.getTransaction().commit();
-            return langilea;
-        } catch (Exception e) {
-            e.printStackTrace();
-            session.getTransaction().rollback();
-            return new Langilea();
-        }
-    }
-    
-    @Override
-    public void logout() {
-        session.close();
-    }
-
-    @Override
-    public List<Langilea> listaratu() {
+    public List<Gaixoa> listaratu() {
         try {
             session.beginTransaction();
-            Query kontsulta = session.createQuery("from Langilea");
-            List<Langilea> lista = kontsulta.list();
+            Query kontsulta = session.createQuery("from Gaixoa");
+            List<Gaixoa> lista = kontsulta.list();
             session.getTransaction().commit();
             if (lista.isEmpty()) {
-                return new ArrayList<Langilea>();
+                return new ArrayList<Gaixoa>();
             } else {
                 return lista;
             }
         } catch (Exception e) {
             e.printStackTrace();
             session.getTransaction().rollback();
-            return new ArrayList<Langilea>();
+            return new ArrayList<Gaixoa>();
+        }
+    }
+
+    @Override
+    public Gaixoa getGaixoaGZ(int gz) {
+        try {
+            session = this.session.getSessionFactory().openSession();
+            session.beginTransaction();
+            String hql = "from Gaixoa where GZ = ?";
+            Query kontsulta = session.createQuery(hql).setParameter(0, gz);
+            Gaixoa gaixoa = (Gaixoa) kontsulta.uniqueResult();
+            session.getTransaction().commit();
+            return gaixoa;
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            return new Gaixoa();
         }
     }
 

@@ -3,25 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package bean;
 
 import domain.*;
-
-import javax.faces.bean.ManagedProperty;
+import java.util.*;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.FacesConverter;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+import util.DAOFactory;
 
 /**
  *
  * @author Eneko
  */
-@FacesConverter(forClass = domain.Gaixoa.class, value = "gaixoaConverter")
-public class GaixoaConverter implements Converter {
+@FacesConverter(forClass = domain.Langilea.class,value="langileaConverter")
+public class LangileaConverter implements Converter {
 
-    @ManagedProperty("#{gaixoaDB}")
-    private GaixoaDB db;
+    public static List<Langilea> langileak = new ArrayList<Langilea>();
+
+    static {
+        
+        LangileaDAO langileaDAO = DAOFactory.langileaDAOSortu();
+        langileak = langileaDAO.listaratu();
+        
+    }
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
@@ -29,9 +35,9 @@ public class GaixoaConverter implements Converter {
             return null;
         } else {
             int gz = Integer.parseInt(value);
-            for (Gaixoa g : db.getGaixoak()) {
-                if (g.getGz() == gz) {
-                    return g;
+            for (Langilea s : langileak) {
+                if (s.getGz() == gz) {
+                    return s;
                 }
             }
         }
@@ -43,22 +49,8 @@ public class GaixoaConverter implements Converter {
         if(value == null || value.equals("")){
             return "";
         } else{
-            return String.valueOf(((Gaixoa) value).getGz());
+            return String.valueOf(((Langilea) value).getGz());
         }
-    }
-
-    /**
-     * @return the db
-     */
-    public GaixoaDB getDb() {
-        return db;
-    }
-
-    /**
-     * @param db the db to set
-     */
-    public void setDb(GaixoaDB db) {
-        this.db = db;
     }
 
 }
