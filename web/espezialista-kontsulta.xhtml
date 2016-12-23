@@ -26,6 +26,9 @@
       <p:layoutUnit position="center" >
         <h:form>
           <p:toolbar id="tb">
+            <f:facet name="left">
+              <h:outputText value="#{langileaBean.langilea.espIzena}: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
+            </f:facet>
             <f:facet name="right">
               <p:button value="Atzera" outcome="espezialista-kontsultak" icon="ui-icon-triangle-1-w"/>
               <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>

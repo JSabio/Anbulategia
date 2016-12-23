@@ -152,6 +152,10 @@ public class LangileakBean implements Serializable {
         return "sendagile-kontsulta.xhtml?gz="+kontsulta.getGaixoa().getGz()+"&faces-redirect=true&includeViewParams=true";
     }
     
+    public String espezialistaKontsultaAurrera(Kontsulta kontsulta){
+        return "espezialista-kontsulta.xhtml?gz="+kontsulta.getGaixoa().getGz()+"&faces-redirect=true&includeViewParams=true";
+    }
+    
     public String erizainKontsultaAurrera(Kontsulta kontsulta){
         return "erizain-kontsulta.xhtml?gz="+kontsulta.getGaixoa().getGz()+"&faces-redirect=true&includeViewParams=true";
     }
