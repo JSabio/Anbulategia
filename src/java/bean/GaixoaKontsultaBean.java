@@ -5,12 +5,16 @@
  */
 package bean;
 
-import domain.Gaixoa;
+import domain.*;
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import util.DAOFactory;
 
 /**
  *
@@ -18,11 +22,10 @@ import javax.faces.bean.SessionScoped;
  */
 @Named(value = "gaixoaKontsultaBean")
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class GaixoaKontsultaBean {
 
-    @ManagedProperty("#{gaixoaDB}")
-    private GaixoaDB db;
+
     private Gaixoa gaixoa;
     private int gz;
     private String izena;
@@ -30,9 +33,21 @@ public class GaixoaKontsultaBean {
     private int telefonoa;
     private String helbidea;
     
+    @ManagedProperty(value = "#{langileakBean.sendagilea}")
+    private Langilea sendagilea;
+    @ManagedProperty(value = "#{langileakBean.erizaina}")
+    private Langilea erizaina;
+    
+    // Tentsioa hartu
+    private Integer altua;
+    private Integer baxua;
+    private Tentsioa tentsioa;
+    
     @PostConstruct
-    public void init() {
-        gaixoa = db.getGaixoak().get(0);
+    public void init() {       
+        String urlGZ = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("gz");
+        GaixoaDAO gaixoaDAO = DAOFactory.gaixoaDAOSortu();
+        gaixoa = gaixoaDAO.getGaixoaGZ(Integer.parseInt(urlGZ));
         this.gz = gaixoa.getGz();
         this.izena = gaixoa.getIzena();
         this.abizena = gaixoa.getAbizena();
@@ -44,21 +59,20 @@ public class GaixoaKontsultaBean {
         if(!gaixoa.getIzena().equals(izena)) gaixoa.setIzena(izena);
         if(!gaixoa.getAbizena().equals(abizena)) gaixoa.setAbizena(abizena);
         if(gaixoa.getTelefonoa() != telefonoa) gaixoa.setTelefonoa(telefonoa);
-        if(!gaixoa.getHelbidea().equals(helbidea)) gaixoa.setHelbidea(helbidea);        
+        if(!gaixoa.getHelbidea().equals(helbidea)) gaixoa.setHelbidea(helbidea);   
+        GaixoaDAO gaixoaDAO = DAOFactory.gaixoaDAOSortu();
+        gaixoaDAO.editatu(gaixoa);
     }
 
-    /**
-     * @return the db
-     */
-    public GaixoaDB getDb() {
-        return db;
-    }
-
-    /**
-     * @param db the db to set
-     */
-    public void setDb(GaixoaDB db) {
-        this.db = db;
+    public String tentsioaHartu(){
+        tentsioa = new Tentsioa();
+        tentsioa.setGaixoa(gaixoa);
+        tentsioa.setAltua(altua);
+        tentsioa.setBaxua(baxua);
+        tentsioa.setEguna(new Date());
+        TentsioaDAO tentsioaDAO = DAOFactory.tentsioaDAOSortu();
+        tentsioaDAO.gorde(tentsioa);
+        return "erizain-kontsultak?faces-redirect=true";
     }
 
     /**
@@ -143,6 +157,76 @@ public class GaixoaKontsultaBean {
      */
     public void setHelbidea(String helbidea) {
         this.helbidea = helbidea;
+    }
+
+    /**
+     * @return the sendagilea
+     */
+    public Langilea getSendagilea() {
+        return sendagilea;
+    }
+
+    /**
+     * @param sendagilea the sendagilea to set
+     */
+    public void setSendagilea(Langilea sendagilea) {
+        this.sendagilea = sendagilea;
+    }
+
+    /**
+     * @return the erizaina
+     */
+    public Langilea getErizaina() {
+        return erizaina;
+    }
+
+    /**
+     * @param erizaina the erizaina to set
+     */
+    public void setErizaina(Langilea erizaina) {
+        this.erizaina = erizaina;
+    }
+
+    /**
+     * @return the altua
+     */
+    public Integer getAltua() {
+        return altua;
+    }
+
+    /**
+     * @param altua the altua to set
+     */
+    public void setAltua(Integer altua) {
+        this.altua = altua;
+    }
+
+    /**
+     * @return the baxua
+     */
+    public Integer getBaxua() {
+        return baxua;
+    }
+
+    /**
+     * @param baxua the baxua to set
+     */
+    public void setBaxua(Integer baxua) {
+        this.baxua = baxua;
+    }
+
+    /**
+     * @return the tentsioa
+     */
+    public Tentsioa getTentsioa() {
+        return tentsioa;
+    }
+
+    /**
+     * @param tentsioa the tentsioa to set
+     */
+    public void setTentsioa(Tentsioa tentsioa) {
+        this.tentsioa = tentsioa;
     }
     
     

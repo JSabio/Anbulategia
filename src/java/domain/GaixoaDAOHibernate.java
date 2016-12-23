@@ -46,6 +46,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
     @Override
     public void editatu(Gaixoa gaixoa) {
         try {
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             session.update(gaixoa);
             session.getTransaction().commit();
@@ -98,7 +99,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
     @Override
     public Gaixoa getGaixoaGZ(int gz) {
         try {
-            session = this.session.getSessionFactory().openSession();
+            session = this.session.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             String hql = "from Gaixoa where GZ = ?";
             Query kontsulta = session.createQuery(hql).setParameter(0, gz);

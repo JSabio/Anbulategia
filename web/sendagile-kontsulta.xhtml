@@ -26,6 +26,9 @@
       <p:layoutUnit position="center" >
         <h:form>
           <p:toolbar id="tb">
+            <f:facet name="left">
+                <h:outputText value="Sendagilea: #{langileaBean.langilea.izena} #{langileaBean.langilea.abizena}" style="margin-right: 20px"/>
+            </f:facet>
             <f:facet name="right">
               <p:button value="Atzera" outcome="sendagile-kontsultak" icon="ui-icon-triangle-1-w"/>
               <p:commandButton value="Irten" action="#{langileaBean.logout()}" icon="ui-icon-circle-close"/>
@@ -49,7 +52,7 @@
                   <h:outputText value="Telefonoa "/>
                   <h:outputText value="#{gaixoaKontsultaBean.gaixoa.telefonoa}"/>
 
-                  <p:commandButton value="Historiala eguneratu" onclick="PF('historiala').show()"/>
+                  <p:commandButton value="Gaixoa eguneratu" onclick="PF('historiala').show()"/>
                 </p:panelGrid>
               </p:column>
 

@@ -20,7 +20,7 @@ import util.DAOFactory;
  * @author Eneko
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class LangileakBean implements Serializable {
 
     @ManagedProperty(value = "#{langileaBean.langilea}")
@@ -146,6 +146,14 @@ public class LangileakBean implements Serializable {
         KontsultaDAO kontsultaDAO = DAOFactory.kontsultaDAOSortu();
         kontsulta.setId(kontsultaDAO.getMaxID()+1);
         kontsultaDAO.gorde(kontsulta);
+    }
+    
+    public String sendagileKontsultaAurrera(Kontsulta kontsulta){
+        return "sendagile-kontsulta.xhtml?gz="+kontsulta.getGaixoa().getGz()+"&faces-redirect=true&includeViewParams=true";
+    }
+    
+    public String erizainKontsultaAurrera(Kontsulta kontsulta){
+        return "erizain-kontsulta.xhtml?gz="+kontsulta.getGaixoa().getGz()+"&faces-redirect=true&includeViewParams=true";
     }
     
     public String larrialdiBerria() {

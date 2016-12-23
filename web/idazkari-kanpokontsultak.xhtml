@@ -33,7 +33,7 @@
             <p:panelGrid columns="1" style="background:none">
               <p:row>
                 <h:outputText value="GSZ: " /><br/>
-                <p:autoComplete value="#{kontsultaBean.gaixoa}" completeMethod="#{kontsultaBean.complete}" 
+                <p:autoComplete value="#{langileakBean.gaixoa}" completeMethod="#{langileak.complete}" 
                                 var="gaixoa" itemLabel="#{gaixoa.gz}" itemValue="#{gaixoa}" converter="gaixoaConverter" forceSelection="true">
                   <p:column>
                     <h:outputText value="#{gaixoa.gz}"/>

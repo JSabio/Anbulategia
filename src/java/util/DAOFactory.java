@@ -16,13 +16,13 @@ public class DAOFactory {
         LangileaDAOHibernate langileaDAO = new LangileaDAOHibernate();
         return langileaDAO;
     }
-    
-    public static GaixoaDAO gaixoaDAOSortu(){
+
+    public static GaixoaDAO gaixoaDAOSortu() {
         GaixoaDAOHibernate gaixoaDAO = new GaixoaDAOHibernate();
         return gaixoaDAO;
     }
-    
-    public static KontsultaDAO kontsultaDAOSortu(){
+
+    public static KontsultaDAO kontsultaDAOSortu() {
         KontsultaDAOHibernate kontsultaDAO = new KontsultaDAOHibernate();
         return kontsultaDAO;
     }
@@ -31,10 +31,15 @@ public class DAOFactory {
         LarrialdiaDAOHibernate larrialdiaDAO = new LarrialdiaDAOHibernate();
         return larrialdiaDAO;
     }
-    
-     public static AltaBajaDAO altabajaDAOSortu() {
+
+    public static AltaBajaDAO altabajaDAOSortu() {
         AltaBajaDAOHibernate altabajaDAO = new AltaBajaDAOHibernate();
         return altabajaDAO;
+    }
+    
+    public static TentsioaDAO tentsioaDAOSortu() {
+        TentsioaDAOHibernate tentsioaDAO = new TentsioaDAOHibernate();
+        return tentsioaDAO;
     }
     
 }

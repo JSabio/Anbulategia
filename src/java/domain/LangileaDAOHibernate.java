@@ -78,7 +78,7 @@ public class LangileaDAOHibernate implements LangileaDAO {
     @Override
     public Langilea getLangilea(String erabiltzailea){
         try {
-            session = this.session.getSessionFactory().openSession();
+            session = this.session.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             String hql = "from Langilea where Erabiltzailea = ?";
             Query kontsulta = session.createQuery(hql).setParameter(0, erabiltzailea);

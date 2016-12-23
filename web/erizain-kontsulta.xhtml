@@ -34,21 +34,21 @@
                 <p:panelGrid columns="1" style="background:none">
                   <p:row>
                     <h:outputText value="Gaixoa: " /><br/>
-                    <h:outputText value="_____ ________" />
+                    <h:outputText value="#{gaixoaKontsultaBean.gaixoa.izena} #{gaixoaKontsultaBean.gaixoa.abizena}" />
                   </p:row>
 
                   <p:row>
                     <h:outputText value="Tentsio altua:"/><br/>
-                    <p:inputText id="altua" value=""/>
+                    <p:inputText id="altua" value="#{gaixoaKontsultaBean.altua}"/>
                   </p:row>
 
                   <p:row>
                     <h:outputText value="Tentsio baxua: "/><br/>
-                    <p:inputText id="baxua" value=""/>
+                    <p:inputText id="baxua" value="#{gaixoaKontsultaBean.baxua}"/>
                   </p:row>
 
                   <p:row>
-                    <p:commandButton value="Gorde" style="width:100%"/>
+                    <p:commandButton action="#{gaixoaKontsultaBean.tentsioaHartu()}" value="Gorde" style="width:100%"/>
                   </p:row>
                 </p:panelGrid>
               </h:form>
@@ -73,7 +73,7 @@
                 <p:panelGrid columns="1" style="background:none">
                   <p:row>
                     <h:outputText value="Gaixoa: " /><br/>
-                    <h:outputText value="_____ ________" />
+                    <h:outputText value="#{gaixoaKontsultaBean.gaixoa.izena} #{gaixoaKontsultaBean.gaixoa.abizena}" />
                   </p:row>
 
                   <p:row>
