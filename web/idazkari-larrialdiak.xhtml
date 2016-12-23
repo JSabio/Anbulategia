@@ -33,7 +33,7 @@
             <p:panelGrid columns="1" style="background:none">
               <p:row>
                 <h:outputText value="GSZ: " /><br/>
-                <p:autoComplete value="#{kontsultaBean.gaixoa}" completeMethod="#{kontsultaBean.complete}" 
+                <p:autoComplete value="#{langileakBean.gaixoa}" completeMethod="#{langileakBean.complete}" 
                                 var="gaixoa" itemLabel="#{gaixoa.gz}" itemValue="#{gaixoa}" converter="gaixoaConverter" forceSelection="true">
                   <p:column>
                     <h:outputText value="#{gaixoa.gz}"/>
@@ -46,11 +46,17 @@
 
               <p:row>
                 <h:outputText value="Adierazpena: "/><br/>
-                <p:inputTextarea rows="5" />
+                <p:inputTextarea rows="5"  value="#{langileakBean.adierazpena}" />
               </p:row>
-
+                
+                <p:outputLabel value="Sendagilea: "/>
+                  <p:selectOneMenu value="#{langileakBean.sendagilea}" converter="langileaConverter" >
+                    <f:selectItem itemLabel="-- Aukeratu sendagilea --" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItems value="#{langileakBean.sendagileak}" var="sendagilea" itemLabel="#{sendagilea.izena} #{sendagilea.abizena}" itemValue="#{sendagilea}" />
+                  </p:selectOneMenu>
+                
               <p:row>
-                <p:commandButton value="Bidali" styleClass="bidali"/>
+                <p:commandButton value="Bidali" styleClass="bidali" action="#{langileakBean.larrialdiBerria()}"/>
               </p:row>
             </p:panelGrid>
           </h:form>

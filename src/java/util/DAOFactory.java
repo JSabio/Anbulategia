@@ -26,5 +26,15 @@ public class DAOFactory {
         KontsultaDAOHibernate kontsultaDAO = new KontsultaDAOHibernate();
         return kontsultaDAO;
     }
+
+    public static LarrialdiaDAO larrialdiaDAOSortu() {
+        LarrialdiaDAOHibernate larrialdiaDAO = new LarrialdiaDAOHibernate();
+        return larrialdiaDAO;
+    }
+    
+     public static AltaBajaDAO altabajaDAOSortu() {
+        AltaBajaDAOHibernate altabajaDAO = new AltaBajaDAOHibernate();
+        return altabajaDAO;
+    }
     
 }

@@ -41,6 +41,15 @@ public class LangileakBean implements Serializable {
     private int id;
     private Date eguna;
     private Integer ordua;
+    
+    
+    // Larrialdia gordetzeko
+    private Larrialdia larrialdia;
+    private String adierazpena;
+    
+    // Baja partea eguneratzeko
+    private AltaBaja altabaja;
+    private Date bajaeguna;
 
     @PostConstruct
     public void init() {
@@ -137,6 +146,31 @@ public class LangileakBean implements Serializable {
         KontsultaDAO kontsultaDAO = DAOFactory.kontsultaDAOSortu();
         kontsulta.setId(kontsultaDAO.getMaxID()+1);
         kontsultaDAO.gorde(kontsulta);
+    }
+    
+    public String larrialdiBerria() {
+        LarrialdiaDAO larrialdiaDAO = DAOFactory.larrialdiaDAOSortu();
+        setLarrialdia(new Larrialdia());
+        getLarrialdia().setGaixoa(gaixoa);
+        getLarrialdia().setLangilea(sendagilea);
+        eguna = new Date();
+        getLarrialdia().setEguna(eguna);
+        ordua = 12;
+        getLarrialdia().setOrdua(ordua);
+        getLarrialdia().setAdierazpena(getAdierazpena());
+        
+        
+        larrialdiaDAO.gorde(getLarrialdia());
+        return "idazkari-menua?faces-redirect=true";
+        
+    }
+    
+    public String bajaEguneratu(){
+        AltaBajaDAO altabajaDAO = DAOFactory.altabajaDAOSortu();
+        altabaja = altabajaDAO.getAltaBaja(gaixoa.getGz());
+        altabaja.setBaja(bajaeguna);
+        altabajaDAO.editatu(altabaja);
+        return "idazkari-menua?faces-redirect=true";
     }
     
     
@@ -337,4 +371,60 @@ public class LangileakBean implements Serializable {
         this.ordua = ordua;
     }
 
+     /**
+     * @return the larrialdia
+     */
+    public Larrialdia getLarrialdia() {
+        return larrialdia;
+    }
+
+    /**
+     * @param larrialdia the larrialdia to set
+     */
+    public void setLarrialdia(Larrialdia larrialdia) {
+        this.larrialdia = larrialdia;
+    }
+
+    /**
+     * @return the adierazpena
+     */
+    public String getAdierazpena() {
+        return adierazpena;
+    }
+
+    /**
+     * @param adierazpena the adierazpena to set
+     */
+    public void setAdierazpena(String adierazpena) {
+        this.adierazpena = adierazpena;
+    }
+    
+    /**
+     * @return the altabaja
+     */
+    public AltaBaja getAltabaja() {
+        return altabaja;
+    }
+
+    /**
+     * @param altabaja the altabaja to set
+     */
+    public void setAltabaja(AltaBaja altabaja) {
+        this.altabaja = altabaja;
+    }
+
+    /**
+     * @return the bajaeguna
+     */
+    public Date getBajaeguna() {
+        return bajaeguna;
+    }
+
+    /**
+     * @param bajaeguna the bajaeguna to set
+     */
+    public void setBajaeguna(Date bajaeguna) {
+        this.bajaeguna = bajaeguna;
+    }
+    
 }
