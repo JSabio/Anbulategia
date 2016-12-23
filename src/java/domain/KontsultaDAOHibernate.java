@@ -22,6 +22,7 @@ public class KontsultaDAOHibernate implements KontsultaDAO {
     @Override
     public void gorde(Kontsulta kontsulta) {
         try {
+            session = this.session.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(kontsulta);
             session.getTransaction().commit();
@@ -97,7 +98,7 @@ public class KontsultaDAOHibernate implements KontsultaDAO {
     public int getMaxID() {
         try {
             session.beginTransaction();
-            Query kontsulta = session.createQuery("SELECT max(ID) from Kontsulta as k");
+            Query kontsulta = session.createQuery("SELECT max(k.id) from Kontsulta as k");
             int max = (int) kontsulta.uniqueResult();
             session.getTransaction().commit();
             return max;

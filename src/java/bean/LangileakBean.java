@@ -129,7 +129,14 @@ public class LangileakBean implements Serializable {
     }
     
     public void erizainKontsultaBerria(){
-        
+        Kontsulta kontsulta = new Kontsulta();
+        kontsulta.setLangilea(erizaina);
+        kontsulta.setGaixoa(gaixoa);
+        kontsulta.setEguna(eguna);
+        kontsulta.setOrdua(ordua);
+        KontsultaDAO kontsultaDAO = DAOFactory.kontsultaDAOSortu();
+        kontsulta.setId(kontsultaDAO.getMaxID()+1);
+        kontsultaDAO.gorde(kontsulta);
     }
     
     

@@ -159,7 +159,7 @@
           </p:row>
 
           <p:row>
-            <p:commandButton value="Sortu" action="#{langileakBean.sendagileKontsultaBerria()}" style="width: 100%"/>
+            <p:commandButton value="Sortu" action="#{langileakBean.sendagileKontsultaBerria()}" oncomplete="PF('sendagile-kberria').hide()" style="width: 100%"/>
           </p:row>
         </p:panelGrid>
       </h:form>
@@ -187,19 +187,16 @@
 
           <p:row>
             <h:outputText value="Eguna: "/><br/>
-            <p:calendar id="popup"/>
+            <p:calendar value="#{langileakBean.eguna}" pattern="yyyy/MM/dd" readonlyInput="true"  />
           </p:row>
 
           <p:row>
             <h:outputText value="Ordua: "/><br/>
-            <p:selectOneMenu>
-              <f:selectItem itemLabel="Ordua aukeratu"/>
-              <f:selectItem itemLabel="12:00"/>
-            </p:selectOneMenu>
+            <p:inputNumber id="ordua" value="#{langileakBean.ordua}" decimalPlaces="0" thousandSeparator="" maxValue="1730"/>
           </p:row>
 
           <p:row>
-            <p:commandButton value="Sortu" style="width: 100%"/>
+            <p:commandButton value="Sortu" action="#{langileakBean.erizainKontsultaBerria()}" oncomplete="PF('erizain-kberria').hide()" style="width: 100%"/>
           </p:row>
         </p:panelGrid>
       </h:form>
